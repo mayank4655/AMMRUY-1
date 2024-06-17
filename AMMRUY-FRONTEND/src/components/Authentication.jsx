@@ -108,7 +108,7 @@ function Authentication() {
           <div className="header mx-auto text-white">
             <h1
               className='text-4xl font-bold'>
-              {!login ? 'One Of Us?' : 'New Here?'}
+              {!login ? 'Already a member?' : 'New Here?'}
             </h1>
             <p className='mx-auto text-xl my-2 roboto-thin w-[80%]'>
               {!login ? 'If you already have an account, just sign in. We have missed you!' : 'Signup and use our service'}

@@ -5,14 +5,16 @@ import './App.css'
 import Testimonials from './components/Testimonials' 
 import Authentication from './components/Authentication'
 import AboutUs from './components/AboutUs'
+import ServicePage from './components/ServicePage'
 
 function App() {
 
   return (
     <>
-      <Testimonials/>
+      <ServicePage/>
       <Authentication/>
       <AboutUs />
+      <Testimonials/>
     </>
   )
 }

@@ -11,6 +11,10 @@ export default {
         'green-gradient': 'rgba(5, 237, 153, 1)',
         'dark-green-gradient': 'rgba(2, 148, 148, 1)'
       },
+      gridTemplateColumns: {
+        'auto-fill-100': 'repeat(auto-fill, minmax(100px, 1fr))',
+        'auto-fit-100': 'repeat(auto-fit, minmax(350px, 1fr))',
+      },
     },
   },
   plugins: [],
