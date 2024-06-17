@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Testimonials from './components/Testimonials' 
 import Authentication from './components/Authentication'
+import AboutUs from './components/AboutUs'
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     <>
       <Testimonials/>
       <Authentication/>
+      <AboutUs />
     </>
   )
 }
