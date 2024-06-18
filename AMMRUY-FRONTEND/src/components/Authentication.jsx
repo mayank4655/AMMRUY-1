@@ -5,7 +5,6 @@ import { FcGoogle } from 'react-icons/fc';
 
 
 function Authentication() {
-   
 
   const [login, setLogin] = useState(false);
   const [formData, setFormData] = useState({

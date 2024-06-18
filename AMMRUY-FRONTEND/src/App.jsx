@@ -5,14 +5,16 @@ import './App.css'
 import Testimonials from './components/Testimonials' 
 import Authentication from './components/Authentication'
 import AboutUs from './components/AboutUs'
+import Feedback from './components/Feedback'
 
 function App() {
 
   return (
     <>
-      <Testimonials/>
+      {/* <Testimonials/>
       <Authentication/>
-      <AboutUs />
+      <AboutUs /> */}
+      <Feedback/>
     </>
   )
 }
