@@ -6,14 +6,16 @@ import Testimonials from './components/Testimonials'
 import Authentication from './components/Authentication'
 import AboutUs from './components/AboutUs'
 import Feedback from './components/Feedback'
+import ServicePage from './components/ServicePage'
 
 function App() {
 
   return (
     <>
-       <Testimonials/>
+      <ServicePage/>
+      <Testimonials/>
       <Authentication/>
-      <AboutUs /> 
+      <AboutUs />
       <Feedback/>
     </>
   )
