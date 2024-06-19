@@ -4,14 +4,19 @@ import img2 from "../assets/AboutUs/img2.png";
 
 function AboutUs() {
   return (
-    <div className="flex ">
-      <div className="first w-full">
-       <div className="relative flex flex-row m-10 my-24 ml-2 mt-[10rem]">
-            <img className="w-[650px] h-500px] m-10 ml-[2rem]" src={img2} alt="Electrical appliances" />
-            <img className="absolute w-[355px] h-[240px] mx-[35%] ml-[28.5rem] my-[23rem] mt-[14rem]" src={img1} alt="Washing maching repair" />
+    <div className="flex flex-col md:flex-row">
+      <div className="first">
+       <div className=" object-fill lg:flex lg:m-10 lg:my-24 lg:ml-2 lg:mt-[10rem] lg:min-w-[792px] md:min-w-[530px] md:flex-col md:object-fill">
+        <div className="lg:max-w-[650px] lg:max-h-[500px] md:max-w-[531px]">
+            <img className="relative md:w-auto md:h-auto lg:m-10 lg:ml-[2rem] lg:top-4 object-fill" src={img2} alt="Electrical appliances" />
+            
+        </div>
+        <div className="absolute hidden md:block lg:w-[350px] lg:h-[260px] lg:mt-[209px] lg:left-[29.25rem] md:w-[531px] ">
+            <img className="w-auto h-auto top-auto" src={img1} alt="Washing maching repair" />
+        </div>
        </div>
       </div>
-      <div className="second login-bg text-center w-[1200px]">
+      <div className="second login-bg text-center lg:min-w-auto max-w-fit">
         <div className="header mx-auto text-white  mt-[3rem]">
             <h1 className='font-bold text-5xl my-4 mb-[2rem]'>The Team</h1>
             <p className='mx-auto text-xl my-2 roboto-thin w-[80%] text-left'> We are dedicated to offering our clients fast, affordable and professional appliance repair service. Resolving the appliance repair issues of our customers in a timely and affordable price is our #1 goal.
