@@ -1,11 +1,8 @@
 import React from 'react';
-import Navbar from './Navbar';
 import './HeroSection.css'; // Ensure this CSS file is created and contains necessary styles
-import image4 from '../assets/image 4.png'; 
 const HeroSection = () => {
   return (
     <div className="hero-container">
-      <Navbar />
       <div className="hero-content">
         <div className="hero-content-left"></div>
         <div className="hero-content-right">
@@ -19,7 +16,7 @@ const HeroSection = () => {
       <div className="newpart">
         <div className="newpart-left">
           <a href="">
-          <img src={image4} alt="Image 4" />
+          {/* <img src={image4} alt="Image 4" /> */}
           </a>
         </div>
         <div className="newpart-right">

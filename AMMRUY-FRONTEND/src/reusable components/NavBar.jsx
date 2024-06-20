@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Navbar,
   Collapse,
@@ -67,15 +68,8 @@ function NavListMenu() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const renderItems = navListMenuItems.map(
     ({ icon, title, description }, key) => (
-      <a href="#" key={key}>
+      <a key={key}>
         <MenuItem className="flex items-center  rounded-lg hover:bg-black/10 pt-2 md:hover:text-black hover:text-white" >
-          {/* <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 pr-3">
-            {" "}
-            {React.createElement(icon, {
-              strokeWidth: 2,
-              className: "h-6 text-gray-900 w-6",
-            })}
-          </div> */}
           <div >
             <Typography
               variant="h6"
@@ -84,14 +78,7 @@ function NavListMenu() {
             >
               {title}
             </Typography>
-            {/* <Typography
-              variant="paragraph"
-              className="text-xs !font-medium text-blue-gray-500"
-            >
-              {description}
-            </Typography> */}
           </div>
-          
         </MenuItem>
       </a>
     ),
@@ -157,7 +144,7 @@ function NavList() {
       <NavListMenu />
       <Typography
         as="a"
-        href="#"
+        href="#footer"
         variant="small"
         color="blue-gray"
         className="font-medium"
@@ -168,7 +155,7 @@ function NavList() {
       </Typography>
       <Typography
         as="a"
-        href="#"
+        href="#about"
         variant="small"
         color="blue-gray"
         className="font-medium"
@@ -206,10 +193,10 @@ export function NavBar() {
           <NavList />
         </div>
         <div className="hidden gap-2 lg:flex">
-          <Button variant="text" size="sm" color="blue-gray" className="bg-slate-600/20 hover:bg-slate-600/30 text-sm font-semibold">
+          <Button variant="text" color="blue-gray" className="bg-slate-600/20 hover:bg-slate-600/30 text-sm font-semibold">
             Log In
           </Button>
-          <Button variant="gradient" size="sm" className="bg-slate-600/20 hover:bg-slate-600/30 text-sm font-semibold">
+          <Button variant="gradient" className="bg-slate-600/20 hover:bg-slate-600/30 text-sm font-semibold">
             Sign In
           </Button>
         </div>
@@ -231,10 +218,10 @@ export function NavBar() {
         <div className="hover:none">
         <NavList />
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden ">
-          <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 py-[10px]" size="xl" color="blue-gray" fullWidth>
+          <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 py-[10px]" color="blue-gray" fullWidth>
             Log In
           </Button>
-          <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 py-[10px]" size="xl" color="blue-gray"  fullWidth>
+          <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 py-[10px]" color="blue-gray"  fullWidth>
             Sign In
           </Button>
         </div>
