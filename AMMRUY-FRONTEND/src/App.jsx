@@ -7,12 +7,10 @@ import Main from './components/Main'
 function App() {
   return (
     <>
-    <Router>
-      <Routes>
-        <Route path='/' element={<Main/>}></Route>
-        <Route path='/services' element={<ServicePage/>}></Route>
-      </Routes>
-    </Router>
+      {/* <Testimonials/>
+      <Authentication/>
+      <AboutUs /> */}
+      <Feedback/>
     </>
   )
 }
