@@ -11,19 +11,19 @@ function Main() {
   return (
     <div>
       <section id="Hero">
-        <HeroSection/>
+        <HeroSection />
       </section>
       <section id="service">
-      <Service />
+        <Service />
       </section>
       <section id="testimonial">
-      <Testimonials />
+        <Testimonials />
       </section>
       <section id="feedback">
-      <Feedback />
+        <Feedback />
       </section>
       <section id="about">
-      <AboutUs />
+        <AboutUs />
       </section>
     </div>
   )

@@ -134,7 +134,7 @@ function NavList() {
     <List className=" mb-8 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
       <Typography
         as="a"
-        href="#"
+        href="#hero"
         variant="small"
         color="blue-gray"
         className="font-medium"
