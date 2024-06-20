@@ -79,10 +79,10 @@ const Testimonials = () => {
       <h1 className="text-5xl text-center font-bold mb-20">
         Here’s what our clients have to say!
       </h1>
-      <div className="flex items-center">
+      <div className="flex items-center ">
         <button
           onClick={handlePrev}
-          className="text-black mr-10 py-2 px-4 text-4xl"
+          className="text-black mr-10 py-2 px-4 text-4xl hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
         >
           &lt;
         </button>
@@ -90,7 +90,7 @@ const Testimonials = () => {
           {getVisibleTestimonials().map((testimonial, index) => (
             <div
               key={index}
-              className="bg-gradient-to-tr from-green-gradient from-30% to-dark-green-gradient text-white p-10 rounded-lg shadow-lg flex flex-col items-center w-64 relative transform transition-transform duration-300"
+              className="bg-gradient-to-tr from-green-gradient from-30% to-dark-green-gradient text-white p-10 rounded-lg shadow-lg flex flex-col items-center w-64 relative transform transition-transform duration-300 hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
             >
               <div className="w-20 h-20 bg-white rounded-full absolute -top-10">
                 <img
@@ -108,7 +108,7 @@ const Testimonials = () => {
         </div>
         <button
           onClick={handleNext}
-          className=" text-black ml-10 py-2 px-4 text-4xl"
+          className=" text-black ml-10 py-2 px-4 text-4xl hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
         >
           &gt;
         </button>
