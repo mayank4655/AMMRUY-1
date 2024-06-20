@@ -16,6 +16,7 @@ import Main from './components/Main'
 function App() {
   return (
     <>
+ main
 
       <NavBar/>
       <ServicePage/>
@@ -26,6 +27,14 @@ function App() {
       <ServicePage/>
       <Testimonials/>
       <Feedback/>
+
+    <Router>
+      <Routes>
+        <Route path='/' element={<Main/>}></Route>
+        <Route path='/services' element={<ServicePage/>}></Route>
+      </Routes>
+    </Router>
+ main
     </>
   )
 }
