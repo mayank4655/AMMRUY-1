@@ -16,6 +16,9 @@ export default {
         'auto-fit-100': 'repeat(auto-fit, minmax(350px, 1fr))',
       },
     },
+    gridTemplateColumns: {
+      'auto-fit-100': 'repeat(auto-fit, minmax(350px, 1fr))',
+    },
   },
   plugins: [],
 }
