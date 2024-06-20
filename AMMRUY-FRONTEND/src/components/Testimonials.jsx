@@ -86,7 +86,7 @@ const Testimonials = () => {
         >
           &lt;
         </button>
-        <div className="flex justify-center gap-24">
+        <div className="flex flex-wrap justify-center gap-24">
           {getVisibleTestimonials().map((testimonial, index) => (
             <div
               key={index}

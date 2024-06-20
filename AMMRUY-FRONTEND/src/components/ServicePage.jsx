@@ -42,6 +42,7 @@ const characters = [
 const cards = characters.map((character) => {
     return (
         <Cards
+            key={character.name}
             src={character.src}
             name={character.name}
             body={character.body}
@@ -52,7 +53,8 @@ const cards = characters.map((character) => {
 export default function ServicePage() {
     return (
         <>
-            <div className="grid grid-cols-auto-fit-100">
+            <div 
+            className="grid grid-cols-auto-fit-100">
                 {cards}
             </div>
         </>
