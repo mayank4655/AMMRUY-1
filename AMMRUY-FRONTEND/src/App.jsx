@@ -11,17 +11,18 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 function App() {
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <Router>
         <Routes>
+         {/* <Route path='/' element={<NavBar/>}></Route> */}
           <Route path='/auth' element={<Authentication/>}></Route>
           <Route path='/' element={<Main />}></Route>
           <Route path='/services' element={<ServicePage />}></Route>
         </Routes>
       </Router>
-      <section id="footer">
+      {/* <section id="footer">
       <Footer/>
-      </section>
+      </section> */}
     </>
   )
 }

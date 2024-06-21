@@ -22,6 +22,7 @@ export default function Cards(props) {
             </CardHeader>
             <CardBody className="max-h-70">
         <div className="mb-2 font-medium text-center">
+                    
                     {props.name}
                 </div>
                 <Typography

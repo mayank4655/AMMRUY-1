@@ -197,11 +197,14 @@ export function NavBar() {
             <Link to="/auth">
             Log In
             </Link>
+            {/* Login */}
           </Button>
+          {/* <Loginbtn/> */}
           <Button variant="gradient" className="bg-slate-600/20 hover:bg-slate-600/30 text-sm font-semibold">
             <Link to="/auth">
-              Sign Up 
+              Sign Up
             </Link>
+            {/* sign up */}
           </Button>
         </div>
         <IconButton
@@ -226,11 +229,13 @@ export function NavBar() {
             <Link to="/auth">
               Log In
             </Link>
+            {/* log  in */}
           </Button>
           <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 py-[10px]" color="blue-gray"  fullWidth>
             <Link to="/auth">
               Sign Up 
             </Link>
+            {/* sign up */}
           </Button>
         </div>
         </div>
