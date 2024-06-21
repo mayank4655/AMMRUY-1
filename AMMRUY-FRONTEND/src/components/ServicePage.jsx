@@ -6,6 +6,7 @@ import microwaveImage from "../assets/Services-img/microwave.png";
 import roImage from "../assets/Services-img/ro.png";
 import tvImage from "../assets/Services-img/tv.png";
 import washingMachineImage from "../assets/Services-img/washingMachine.png";
+import { NavBar } from '../reusable components/NavBar';
 
 const characters = [
     {
@@ -53,6 +54,7 @@ const cards = characters.map((character) => {
 export default function ServicePage() {
     return (
         <>
+            <NavBar/>
             <div 
             className="grid grid-cols-auto-fit-100">
                 {cards}

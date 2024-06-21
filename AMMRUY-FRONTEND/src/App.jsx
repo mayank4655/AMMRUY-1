@@ -6,6 +6,7 @@ import Main from './components/Main'
 import { NavBar } from './reusable components/NavBar'
 import { Footer } from './reusable components/Footer'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import AboutUs from './components/AboutUs'
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
           <Route path='/auth' element={<Authentication/>}></Route>
           <Route path='/' element={<Main />}></Route>
           <Route path='/services' element={<ServicePage />}></Route>
+          <Route path='/about' element={<AboutUs/>}></Route>
+          
         </Routes>
       </Router>
       {/* <section id="footer">

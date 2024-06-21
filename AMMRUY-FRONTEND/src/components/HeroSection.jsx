@@ -25,7 +25,7 @@ const HeroSection = () => {
           alt="Appliance Repair Services"
         />
       </div>
-      <div className="hero-content-right w-full md:w-[32rem] p-4 text-center md:text-left text-xl">
+      <div className="hero-content-right w-full md:w-[32rem] p-4 text-center md:text-left text-xl leading-normal">
         <div className="font-serif">
 
         <h2 className='py-2'>Efficient and Effective</h2>
@@ -38,7 +38,7 @@ const HeroSection = () => {
           />
           </div>
         <div className="mt-1">
-          <button className="BTN-color px-8 py-2 text-white font-bold rounded-full">Enquire Now</button>
+          <button className="BTN-color px-8 py-2 text-white font-bold rounded-full hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100">Enquire Now</button>
         </div>
         <div className="trustedCustomers my-4 font-bold">
           <CountUp start={0} end={160526} />&nbsp;

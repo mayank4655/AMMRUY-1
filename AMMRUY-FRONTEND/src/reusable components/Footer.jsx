@@ -6,12 +6,12 @@ const LINKS = [
     items: ["Home", "Services", "Contact Us", "About us"],
   },
   {
-    title: "Call Us",
-    items: ["+91 999999999"],
-  },
-  {
     title: "Email Support",
     items: ["web@support.com"],
+  },
+  {
+    title: "Call Us",
+    items: ["+91 999999999"],
   },
 ];
 
@@ -21,17 +21,17 @@ export function Footer() {
   return (
     <footer className="relative w-full mt-3">
       <div className="mx-auto w-full max-w-7xl px-8">
-        <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
-          <Typography variant="h5" className="mb-6">
+        <div className="flex-none md:flex flex-wrap justify-between gap-4 ">
+          <Typography variant="h5"  className="mb-6">
             
             SharpCareer Solutions
           </Typography>
-          <div className="grid grid-cols-3 justify-between gap-1 md:pl-30">
+          <div className="flex-none basis-7/8 md:flex md:flex-wrap justify-around gap-5 md:pl-30">
             {LINKS.map(({ title, items }) => (
               <ul key={title}>
                 <Typography
                   variant="small"
-                  className="mb-3 font-semibold opacity-60 text-base text-[#575757] "
+                  className="mt-2 md:mt-0 md:mb-3 font-semibold opacity-60 text-lg text-[#575757] "
                 >
                   {title}
                 </Typography>
