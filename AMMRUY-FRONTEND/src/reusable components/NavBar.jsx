@@ -194,10 +194,14 @@ export function NavBar() {
         </div>
         <div className="hidden gap-2 lg:flex">
           <Button variant="text" color="blue-gray" className="bg-slate-600/20 hover:bg-slate-600/30 text-sm font-semibold">
+            <Link to="/auth">
             Log In
+            </Link>
           </Button>
           <Button variant="gradient" className="bg-slate-600/20 hover:bg-slate-600/30 text-sm font-semibold">
-            Sign In
+            <Link to="/auth">
+              Sign Up 
+            </Link>
           </Button>
         </div>
         <IconButton
@@ -219,10 +223,14 @@ export function NavBar() {
         <NavList />
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden ">
           <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 py-[10px]" color="blue-gray" fullWidth>
-            Log In
+            <Link to="/auth">
+              Log In
+            </Link>
           </Button>
           <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 py-[10px]" color="blue-gray"  fullWidth>
-            Sign In
+            <Link to="/auth">
+              Sign Up 
+            </Link>
           </Button>
         </div>
         </div>
