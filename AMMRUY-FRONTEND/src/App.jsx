@@ -20,7 +20,6 @@ function App() {
           <Route path='/' element={<Main />}></Route>
           <Route path='/services' element={<ServicePage />}></Route>
           <Route path='/about' element={<AboutUs/>}></Route>
-          
         </Routes>
       </Router>
       {/* <section id="footer">
