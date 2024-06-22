@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Service from './Service'
 import Feedback from './Feedback'
 import AboutUs from './AboutUs'
@@ -8,18 +8,28 @@ import ServicePage from './ServicePage'
 import HeroSection from './HeroSection'
 import { NavBar } from '../reusable components/NavBar'
 import { Footer } from '../reusable components/Footer'
+import ContactUs from './Contact-us'
 
 function Main() {
+  const [hover, sethover] = useState(false);
+  setTimeout(() => {
+    sethover(false);
+  }, 10000);
   return (
-    <div>
+    <div
+      onMouseMove={() => sethover(true)}
+    >
       <section id="Nav">
-        <NavBar />
+        <NavBar hover={hover} />
       </section>
       <section id="Hero">
         <HeroSection />
       </section>
       <section id="service">
         <Service />
+      </section>
+      <section id="contact">
+        <ContactUs />
       </section>
       <section id="testimonial">
         <Testimonials />
@@ -31,7 +41,7 @@ function Main() {
         <AboutUs />
       </section>
       <section id="footer">
-      <Footer/>
+        <Footer />
       </section>
     </div>
   )

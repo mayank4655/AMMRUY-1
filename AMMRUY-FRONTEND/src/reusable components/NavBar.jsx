@@ -134,7 +134,7 @@ function NavList() {
     <List className=" mb-8 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
       <Typography
         as="a"
-        href="#hero"
+        href="#Hero"
         variant="small"
         color="blue-gray"
         className="font-medium"
@@ -144,7 +144,7 @@ function NavList() {
       <NavListMenu />
       <Typography
         as="a"
-        href="#footer"
+        href="#contact"
         variant="small"
         color="blue-gray"
         className="font-medium"
@@ -168,7 +168,7 @@ function NavList() {
   );
 }
  
-export function NavBar() {
+export function NavBar({hover}) {
   const [openNav, setOpenNav] = React.useState(false);
  
   React.useEffect(() => {
@@ -178,8 +178,8 @@ export function NavBar() {
     );
   }, []);
  
-  return (
-    <Navbar className=" px-4 py-2 bg-[#00B09A] rounded-none">
+  return <div>
+    <Navbar className={`${hover ? 'z-[9999]' : 'z-0 hidden'} fixed top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
@@ -241,5 +241,8 @@ export function NavBar() {
         </div>
       </Collapse>
     </Navbar>
-  );
+    <div className="pt-24">
+
+    </div>
+    </div>  
 }
