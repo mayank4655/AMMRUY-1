@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { FcGoogle } from 'react-icons/fc';
- 
+import {
+  ChevronDownIcon,
+  Bars3Icon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+
+import { Link } from 'react-router-dom';
 
 
 function Authentication() {
@@ -39,6 +45,7 @@ function Authentication() {
   };
 
   return (
+    <>
     <main className='md:flex md:justify-between md:items-center md:gap-24 max-h-full'>
       <div className="signup text-center w-[100vw] mx-auto">
         <div className="content md:ml-72 md:w-[60vmin] mx-auto w-[80%]">
@@ -93,6 +100,7 @@ function Authentication() {
             </div>
           </form>
           <div className="already md:hidden flex gap-1">
+            
             <p>{!login ? 'Already have an account?' : 'Don\'t have an account?'}</p>
             <span
               onClick={loginHandler}
@@ -103,8 +111,14 @@ function Authentication() {
         </div>
       </div>
       <div className="login md:block hidden login-bg text-center h-screen">
+        <div className='text-right'>
+          <Link to="/" className="block w-max ml-auto text-white">
+          <XMarkIcon className="h-10 text-black/50 right-0 hover:text-black/80 md:text-white/50 md:hover:text-white/80" strokeWidth={1.5} />
+          </Link>
+        </div>
         <div className="content w-[40vw] my-[50%]">
           <div className="header mx-auto text-white">
+            
             <h1
               className='text-4xl font-bold'>
               {!login ? 'Already a member?' : 'New Here?'}
@@ -121,6 +135,7 @@ function Authentication() {
         </div>
       </div>
     </main>
+    </>
   );
 }
 

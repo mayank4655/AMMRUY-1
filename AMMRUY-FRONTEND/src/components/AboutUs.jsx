@@ -1,9 +1,12 @@
 import React from 'react'
 import img1 from "../assets/AboutUs/img1.png";
 import img2 from "../assets/AboutUs/img2.png";
+import { NavBar } from '../reusable components/NavBar';
 
 function AboutUs() {
   return (
+    <>
+    <NavBar/>
     <div className="flex flex-col md:flex-row">
       <div className="first">
        <div className=" object-fill lg:flex lg:m-10 lg:my-24 lg:ml-2 lg:mt-[10rem] lg:min-w-[792px] md:min-w-[530px] md:flex-col md:object-fill">
@@ -31,6 +34,7 @@ function AboutUs() {
         
       </div>
     </div>
+    </>
   )
 }
 

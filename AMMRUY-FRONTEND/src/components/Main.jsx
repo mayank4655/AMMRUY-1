@@ -37,9 +37,9 @@ function Main() {
       <section id="feedback">
         <Feedback />
       </section>
-      <section id="about">
+      {/* <section id="about">
         <AboutUs />
-      </section>
+      </section> */}
       <section id="footer">
         <Footer />
       </section>

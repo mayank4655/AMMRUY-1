@@ -139,7 +139,7 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center  gap-2 py-2 pr-4 hover:bg-slate-600/30 hover:text-white text-base">Home</ListItem>
+        <ListItem className="flex items-center  gap-2 py-2 pr-4 hover:bg-slate-600/30 hover:text-white text-base"><Link to="/">Home</Link></ListItem>
       </Typography>
       <NavListMenu />
       <Typography
@@ -161,7 +161,7 @@ function NavList() {
         className="font-medium"
       >
         <ListItem className="flex items-center  gap-2 py-2 pr-4 hover:bg-slate-600/30 hover:text-white text-base">
-          About Us
+          <Link to="/about">About Us</Link>
         </ListItem>
       </Typography>
     </List>
@@ -187,25 +187,25 @@ export function NavBar({hover}) {
           variant="h6"
           className="mr-4 cursor-pointer py-1.5 lg:ml-2 text-xl hover:text-white"
         >
-          SharpCareer Solutions
+          {/* SharpCareer Solutions */}
+          <Link to="/">SharpCareer Solutions</Link>
         </Typography>
         <div className="hidden lg:block">
           <NavList />
         </div>
         <div className="hidden gap-2 lg:flex">
-          <Button variant="text" color="blue-gray" className="bg-slate-600/20 hover:bg-slate-600/30 text-sm font-semibold">
-            <Link to="/auth">
-            Log In
-            </Link>
-            {/* Login */}
-          </Button>
+          <Link to="/auth">
+            <Button variant="text" color="blue-gray" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
+              Log In
+            </Button>
+          </Link>
           {/* <Loginbtn/> */}
-          <Button variant="gradient" className="bg-slate-600/20 hover:bg-slate-600/30 text-sm font-semibold">
-            <Link to="/auth">
-              Sign Up
-            </Link>
-            {/* sign up */}
-          </Button>
+          <Link to="/auth">
+            <Button variant="gradient" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
+              
+                Sign Up
+            </Button>
+          </Link>
         </div>
         <IconButton
 
@@ -225,17 +225,18 @@ export function NavBar({hover}) {
         <div className="hover:none">
         <NavList />
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden ">
-          <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 py-[10px]" color="blue-gray" fullWidth>
-            <Link to="/auth">
+          
+          <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray" fullWidth>
+            <Link to="/auth" className="hover:text-white">
               Log In
             </Link>
             {/* log  in */}
           </Button>
-          <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 py-[10px]" color="blue-gray"  fullWidth>
-            <Link to="/auth">
-              Sign Up 
+
+          <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50"  fullWidth>
+            <Link to="/auth" className="hover:text-white">
+              Sign Up
             </Link>
-            {/* sign up */}
           </Button>
         </div>
         </div>
