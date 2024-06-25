@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { FcGoogle } from 'react-icons/fc';
-import {
-  ChevronDownIcon,
-  Bars3Icon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
-
-import { Link } from 'react-router-dom';
-
+ 
 
 function Authentication() {
 
@@ -38,7 +31,7 @@ function Authentication() {
       const response = await axios.post(`http://localhost:5001${url}`, formData);
       console.log(response.data);
        alert("login success");
-       window.location.href = './App.jsx';
+       window.location.href = '../App.jsx';
     } catch (error) {
       console.error(error.response.data);
     }

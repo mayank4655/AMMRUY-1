@@ -5,6 +5,9 @@ import ServicePage from './components/ServicePage'
 import Main from './components/Main'
 import { NavBar } from './reusable components/NavBar'
 import { Footer } from './reusable components/Footer'
+import Feedback from './components/Feedback'
+
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import AboutUs from './components/AboutUs'
 

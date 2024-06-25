@@ -20,9 +20,8 @@ export default function Cards(props) {
                     className="h-full w-full object-cover rounded-xl"
                 />
             </CardHeader>
-            <CardBody className="max-h-70">
-        <div className="mb-2 font-medium text-center">
-                    
+            <CardBody className="md:h-32">
+                <div className="mb-2 font-medium text-center">
                     {props.name}
                 </div>
                 <Typography
@@ -37,7 +36,7 @@ export default function Cards(props) {
                 <Button
                     ripple={false}
                     fullWidth={true}
-                    className="bg-[#00B09A] text-[#ffffff] rounded-full shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100 text-base font-normal"
+                    className="bg-[#00B09A] pt-2 pb-2 text-[#ffffff] rounded-full shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100 text-base font-normal"
                 >
                     READ MORE
                 </Button>
