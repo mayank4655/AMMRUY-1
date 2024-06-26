@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Cards from '../reusable components/Card';
 import acImage from "../assets/Services-img/ac.png";
 import fridgeImage from "../assets/Services-img/fridge.png";
@@ -7,6 +7,8 @@ import roImage from "../assets/Services-img/ro.png";
 import tvImage from "../assets/Services-img/tv.png";
 import washingMachineImage from "../assets/Services-img/washingMachine.png";
 import { NavBar } from '../reusable components/NavBar';
+import Popup from './Popup';
+
 
 const characters = [
     {
@@ -40,25 +42,33 @@ const characters = [
         body: "Doorstep service center repair all makes and model washing machine repair service, semi automatic washing machine repair...",
     }
 ];
-const cards = characters.map((character) => {
-    return (
-        <Cards
-            key={character.name}
-            src={character.src}
-            name={character.name}
-            body={character.body}
-        />
-    );
-});
+// const cards = 
 
 export default function ServicePage() {
+    // const [Toggle, setToggle] = useState(false);
+    const [hover, sethover] = useState(true);
     return (
         <>
-            <NavBar/>
-            <div 
-            className="grid grid-cols-auto-fit-100">
-                {cards}
-            </div>
+            <main className='w-full'>
+                <NavBar hover={hover} />
+                <div
+                    className="grid grid-cols-auto-fit-100 w-full">
+                    {characters.map((character) => {
+                        return (
+                            <Cards
+                                key={character.name}
+                                src={character.src}
+                                name={character.name}
+                                body={character.body}
+                                // setToggle={setToggle}
+                            />
+                        );
+                    })}
+                </div>
+                <div className="pop">
+                    <Popup />
+                </div>
+            </main>
         </>
     );
 }

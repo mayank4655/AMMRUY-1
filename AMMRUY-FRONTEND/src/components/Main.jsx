@@ -16,13 +16,23 @@ function Main() {
     sethover(false);
   }, 10000);
   return (
-    <div>
-      <Authentication />
-      <AboutUs />
+    <div
+      onMouseMove={() => sethover(true)}
+    >
+      <NavBar
+        hover={hover}
+        status={true}
+        className='fixed'
+      />
+      <section id="hero">
+      <HeroSection />
+      </section>
       <Service />
       <Testimonials />
+      <section id="contact">
       <Feedback />
-      <ServicePage/>
+      </section>
+      <Footer></Footer>
     </div>
   )
 }
