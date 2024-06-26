@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { FcGoogle } from 'react-icons/fc';
- 
+import { Link, useNavigate } from 'react-router-dom';
+import { XMarkIcon } from '@heroicons/react/24/solid';
+
 
 function Authentication() {
 
@@ -12,6 +14,7 @@ function Authentication() {
     confirmPassword: ''
   });
 
+  const navigate = useNavigate();
   const loginHandler = () => {
     setLogin((prev) => !prev);
   };
@@ -30,8 +33,15 @@ function Authentication() {
     try {
       const response = await axios.post(`http://localhost:5001${url}`, formData);
       console.log(response.data);
-       alert("login success");
-       window.location.href = '../App.jsx';
+       alert(login? "Login Success" : "Signup success");
+
+      //  if (login) {
+      //   navigat('/');
+      // } else {
+      //   navigate('/login');
+      // }
+
+       window.location.href = '/';
     } catch (error) {
       console.error(error.response.data);
     }
