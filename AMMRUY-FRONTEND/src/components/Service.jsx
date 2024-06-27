@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Service() {
   return (
-    <div className='service flex justify-between items-center gap-4 min-h-screen mx-4 md: flex-col'>
+    <div className='service flex flex-col md:flex-row justify-between items-center gap-4 min-h-screen mx-4 '>
       <div className="leftSide h-[400px] w-[350px] md:w-[508px] m-auto">
         <img
           className='h-full w-full rounded-xl'
