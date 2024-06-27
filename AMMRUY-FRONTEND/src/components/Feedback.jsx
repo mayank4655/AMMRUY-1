@@ -2,10 +2,10 @@ import React from 'react'
 
 function Feedback() {
     return (
-        <main className='h-[100vh] grid place-items-center'>
+        <main className='h-[100vh] w-min-h-screen mx-4 grid place-items-center'>
             <div className="header">
                 <h1 className='text-3xl mx-auto md:text-5xl font-bold'>Submit Your Feedback...!!</h1>
-                <p className='md:text-2xl mt-8 text-xl'>Your comments are important for us and are crucial in <br />helping us provide the best se</p>
+                <p className='md:text-2xl mt-8 text-xl'>Your comments are important for us and are crucial in <br />helping us provide the best service</p>
             </div>
             <div className="w-[90vw] bg-slate-300 h-[60vh] rounded-3xl flex flex-col justify-center items-center">
                 <div className='w-56 md:w-96 items-center grid place-items-center'>
