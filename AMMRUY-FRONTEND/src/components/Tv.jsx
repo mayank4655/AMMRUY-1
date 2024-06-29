@@ -2,7 +2,7 @@ import React from 'react';
 import tvImage from "../assets/Services-img/tv.png";
 import { NavBar } from '../../reusable components/NavBar';
 
-export default function RORepair() {
+export default function Tv() {
   return (
     <>
       <main className="w-full h-screen">
