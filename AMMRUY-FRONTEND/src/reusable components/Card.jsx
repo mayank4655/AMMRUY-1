@@ -49,7 +49,6 @@ export default function Cards({
                     ripple={false}
                     fullWidth={true}
                     className="bg-[#00B09A] pt-2 pb-2 text-[#ffffff] rounded-full shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100 text-base font-normal"
-                    onClick={popupHandler}
                 >
                     READ MORE
                 </Button>

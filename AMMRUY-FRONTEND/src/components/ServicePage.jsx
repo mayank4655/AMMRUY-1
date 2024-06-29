@@ -65,9 +65,6 @@ export default function ServicePage() {
                         );
                     })}
                 </div>
-                <div className="pop">
-                    <Popup />
-                </div>
             </main>
         </>
     );
