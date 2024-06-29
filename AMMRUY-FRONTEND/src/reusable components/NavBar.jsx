@@ -34,32 +34,32 @@ const navListMenuItems = [
   {
     title: "AC Repair",
     description: "Find the perfect solution for your needs.",
-    icon: SquaresPlusIcon,
+    links: "/ac-repair",
   },
   {
     title: "Fridge Repair",
     description: "Meet and learn about our dedication",
-    icon: UserGroupIcon,
+    links: "/fridge-repair",
   },
   {
     title: "Microwave Repair",
     description: "Find the perfect solution for your needs.",
-    icon: Bars4Icon,
+    links: "/microwave-repair",
   },
   {
     title: "RO Repair",
     description: "Learn how we can help you achieve your goals.",
-    icon: SunIcon,
+    links: "/ro-repair",
   },
   {
     title: "TV Repair",
     description: "Reach out to us for assistance or inquiries",
-    icon: GlobeAmericasIcon,
+    links: "/tv-repair",
   },
   {
     title: "Washing Machine Repair",
     description: "Find the perfect solution for your needs.",
-    icon: PhoneIcon,
+    links: "/washingmachine-repair",
   },
 ];
  
@@ -67,7 +67,7 @@ function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const renderItems = navListMenuItems.map(
-    ({ icon, title, description }, key) => (
+    ({ links, title, description }, key) => (
       <a key={key}>
         <MenuItem className="flex items-center  rounded-lg hover:bg-black/10 pt-2 md:hover:text-black hover:text-white" >
           <div >
@@ -76,7 +76,9 @@ function NavListMenu() {
               color="blue-gray"
               className="flex items-center text-sm font-semibold"
             >
+              <Link to={links}>
               {title}
+              </Link>
             </Typography>
           </div>
         </MenuItem>
