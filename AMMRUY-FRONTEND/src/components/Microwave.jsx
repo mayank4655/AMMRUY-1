@@ -2,7 +2,7 @@ import React from 'react';
 import ovenImage from "../assets/Services-img/microwave.png";
 import { NavBar } from '../../reusable components/NavBar';
 
-export default function RORepair() {
+export default function Microwave() {
   return (
     <>
       <main className="w-full h-screen">
