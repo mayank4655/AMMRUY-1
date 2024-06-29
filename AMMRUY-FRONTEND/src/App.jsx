@@ -6,6 +6,9 @@ import Main from './components/Main'
 import { NavBar } from './reusable components/NavBar'
 import { Footer } from './reusable components/Footer'
 import Feedback from './components/Feedback'
+import Fridge from './components/Fridge'
+import RO from './components/RORepair'
+import AC from './components/RORepair'
 
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -23,6 +26,9 @@ function App() {
           <Route path='/' element={<Main />}></Route>
           <Route path='/services' element={<ServicePage />}></Route>
           <Route path='/about' element={<AboutUs/>}></Route>
+          <Route path='/refrigerator' element={<Fridge/>}/>
+          <Route path='/RO' element={<RO/>}></Route>
+          <Route path='/AC' element={<AC/>}></Route>
         </Routes>
       </Router>
       {/* <section id="footer">
