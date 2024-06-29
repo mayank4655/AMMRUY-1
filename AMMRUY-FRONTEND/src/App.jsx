@@ -10,7 +10,9 @@ import Feedback from './components/Feedback'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import AboutUs from './components/AboutUs'
-
+import ACRepair from './components/ACRepair';
+import FridgeRepair from './components/Fridge';
+import RORepair from './components/RORepair.jsx';
 
 function App() {
   return (
@@ -23,6 +25,9 @@ function App() {
           <Route path='/' element={<Main />}></Route>
           <Route path='/services' element={<ServicePage />}></Route>
           <Route path='/about' element={<AboutUs/>}></Route>
+          <Route path='/ac-repair' element={<ACRepair />} />
+          <Route path='/fridge-repair' element={<FridgeRepair />} />
+          <Route path='/ro-repair' element={<RORepair />} />
         </Routes>
       </Router>
       {/* <section id="footer">
