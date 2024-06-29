@@ -1,12 +1,12 @@
 import React from 'react';
 import acImage from "../assets/Services-img/ac.png";
-import { NavBar } from '../reusable components/NavBar';
+// import { NavBar } from '../reusable components/NavBar';
 
 export default function ACRepair() {
   return (
     <>
       <main className="w-full h-screen">
-        <NavBar />
+        {/* <NavBar /> */}
         <section className="flex items-center justify-center h-full bg-gray-100">
           <div className="flex w-full h-full bg-white shadow-md">
             <div className="w-1/2 h-full">

@@ -13,7 +13,7 @@ export default function WashingMachine() {
               <img className="w-full h-full object-cover object-center" src={washingMachineImage} alt="RO Repair" />
             </div>
             <div className="w-1/2 flex flex-col justify-center p-6">
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4 text-center">RO Repair</h2>
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4 text-center">Washing Machine Repair</h2>
               <p className="text-lg lg:text-xl text-gray-600 mb-6">
               We provide the best in-house washing machine service technicians for fast home service, repair, and maintenance of your domestic and commercial-related washing machines. Such as front load washer, top load washer, washer dryer, all with a composite washer. Call to get service.
               </p>
