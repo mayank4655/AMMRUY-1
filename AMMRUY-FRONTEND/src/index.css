@@ -9,6 +9,9 @@
 .btn-txt{
     color: rgba(0, 176, 154, 1);
 }
+.pop{
+    background-color: rgba(0, 0, 0, 0.7);
+}
 .roboto-thin {
     font-family: "Roboto", sans-serif;
     font-weight: 100;

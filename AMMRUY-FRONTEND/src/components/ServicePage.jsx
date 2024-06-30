@@ -60,7 +60,6 @@ export default function ServicePage() {
                                 src={character.src}
                                 name={character.name}
                                 body={character.body}
-                                // setToggle={setToggle}
                             />
                         );
                     })}
