@@ -9,8 +9,6 @@ import Feedback from './components/Feedback'
 import Fridge from './components/Fridge'
 import RO from './components/RORepair'
 import AC from './components/RORepair'
-
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import AboutUs from './components/AboutUs'
 import WashingMachine from './components/WashingMachine'
@@ -23,19 +21,14 @@ import { useSelector } from 'react-redux'
 import DarkModeToggler from './reusable components/DarkModeToggler'
 import { colors } from '@mui/material'
 
-
 function App() {
   const {mode} = useSelector((state) => state.darkMode);
   
   return (
     <>
     <div style={{background: mode? '#222':'white' , color:mode? 'white':'black'}}>
-      {/* <NavBar /> */}
       <Router >
-        {/* <DarkModeToggler /> */}
         <Routes>
-         {/* <Route path='/' element={<NavBar/>}></Route> */}
-          {/* <Route path='/washing' element={<WashingMachine/>}></Route> */}
           <Route path='/auth' element={<Authentication/>}></Route>
           <Route path='/' element={<Main />}></Route>
           <Route path='/services' element={<ServicePage />}></Route>
@@ -48,9 +41,6 @@ function App() {
           <Route path='/microwave-repair' element={<Microwave />} />
         </Routes>
       </Router>
-      {/* <section id="footer">
-      <Footer/>
-      </section> */}
       </div>
     </>
   )

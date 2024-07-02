@@ -127,7 +127,7 @@ export default function Testimonials() {
             {testimonials.map((d) => (
               <div
                 key={d.name}
-                className="bg-gradient-to-tr from-green-gradient from-30% to-dark-green-gradient text-white rounded-lg shadow-lg flex flex-col items-center w-64 relative z-0 transform transition-transform duration-300 hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+                className="bg-gradient-to-tr from-green-gradient from-30% to-dark-green-gradient text-white rounded-lg shadow-lg flex flex-col items-center w-64 relative transform transition-transform duration-300 hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
               >
                 <div className="testimonials-img w-20 h-20 bg-white rounded-full absolute -top-10 left-28">
                   <img

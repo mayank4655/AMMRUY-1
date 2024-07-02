@@ -31,7 +31,7 @@ import {
   TagIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
- 
+
 const navListMenuItems = [
   {
     title: "AC Repair",
@@ -64,7 +64,7 @@ const navListMenuItems = [
     links: "/washingmachine-repair",
   },
 ];
- 
+
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -79,7 +79,7 @@ function NavListMenu() {
               className="flex items-center text-sm font-semibold"
             >
               <Link to={links}>
-              {title}
+                {title}
               </Link>
             </Typography>
           </div>
@@ -87,7 +87,7 @@ function NavListMenu() {
       </a>
     ),
   );
- 
+
   return (
     <React.Fragment>
       <Menu
@@ -107,22 +107,20 @@ function NavListMenu() {
               Services
               <ChevronDownIcon
                 strokeWidth={2.5}
-                className={`hidden h-3 w-3 transition-transform lg:block ${
-                  isMenuOpen ? "rotate-180" : ""
-                }`}
+                className={`hidden h-3 w-3 transition-transform lg:block ${isMenuOpen ? "rotate-180" : ""
+                  }`}
               />
               <ChevronDownIcon
                 strokeWidth={2.5}
-                className={`block h-3 w-3 transition-transform lg:hidden ${
-                  isMobileMenuOpen ? "rotate-180" : ""
-                }`}
+                className={`block h-3 w-3 transition-transform lg:hidden ${isMobileMenuOpen ? "rotate-180" : ""
+                  }`}
               />
             </ListItem>
           </Typography>
         </MenuHandler>
         <MenuList className="hidden w-full md:w-64 rounded-xl lg:block ">
           <ul className="grid grid-cols-1 gap-y-2 outline-none outline-0 ">
-            { renderItems}
+            {renderItems}
           </ul>
         </MenuList>
       </Menu>
@@ -132,7 +130,7 @@ function NavListMenu() {
     </React.Fragment>
   );
 }
- 
+
 function NavList() {
   return (
     <List className=" mb-8 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
@@ -171,10 +169,10 @@ function NavList() {
     </List>
   );
 }
- 
-export function NavBar({hover, className}) {
+
+export function NavBar({ hover, className }) {
   const [openNav, setOpenNav] = React.useState(false);
- 
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -182,13 +180,10 @@ export function NavBar({hover, className}) {
     );
   }, []);
 
- 
+
   return <div>
 
-    {/* <Navbar className={`${className} ${'z-[9999]'} top-0 px-4 py-2 bg-[#00B09A] rounded-none`}> */}
-
-    <Navbar className={`${className}  'z-[9999] md:z-[9999]' : 'md:z-0 md:hidden' top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
-
+    <Navbar className={`${className} ${hover ? 'z-[9999]' : 'z-[999] md:hidden'} top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
@@ -205,9 +200,9 @@ export function NavBar({hover, className}) {
         {/* <div className="ml-6"> */}
         {/* </div> */}
         <div className="hidden gap-2 lg:flex">
-       <div>
-       <DarkModeToggler/>
-       </div>
+          <div>
+            <DarkModeToggler />
+          </div>
           <Link to="/auth">
             <Button variant="text" color="blue-gray" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
               Log In
@@ -216,14 +211,14 @@ export function NavBar({hover, className}) {
           {/* <Loginbtn/> */}
           <Link to="/auth">
             <Button variant="gradient" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
-              
-                Sign Up
+
+              Sign Up
             </Button>
           </Link>
         </div>
         <div className="lg:hidden absolute top-[8px] right-[49px]">
-       <DarkModeToggler/>
-       </div>
+          <DarkModeToggler />
+        </div>
         <IconButton
 
           variant="text"
@@ -240,25 +235,25 @@ export function NavBar({hover, className}) {
       </div>
       <Collapse open={openNav}>
         <div className="hover:none lg:hidden">
-       {openNav && <NavList />}
-        <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden ">
-          
-          {openNav && <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray" fullWidth>
-            <Link to="/auth" className="hover:text-white">
-              Log In
-            </Link>
-          </Button>}
+          {openNav && <NavList />}
+          <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden ">
 
-          {openNav && <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50"  fullWidth>
-            <Link to="/auth" className="hover:text-white">
-              Sign Up
-            </Link>
-          </Button>}
+            {openNav && <Button className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray" fullWidth>
+              <Link to="/auth" className="hover:text-white">
+                Log In
+              </Link>
+            </Button>}
+
+            {openNav && <Button className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50" fullWidth>
+              <Link to="/auth" className="hover:text-white">
+                Sign Up
+              </Link>
+            </Button>}
+          </div>
         </div>
-        </div> 
       </Collapse>
     </Navbar>
     {className && <div className="pt-24"></div>}
     {/* </Navbar> */}
-    </div>  
+  </div>
 }

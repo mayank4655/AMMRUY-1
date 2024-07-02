@@ -19,9 +19,9 @@ const HeroSection = () => {
 
   return (
     <section className="hero-content flex flex-col md:flex-row items-center justify-center min-h-screen p-4">
-      <div className="hero-content-left h-[400px] w-[350px] md:w-[508px] m-auto">
+      <div className="hero-content-left h-[400px] w-full md:w-[508px] m-auto">
         <img
-          className='w-full h-full object-cover  rounded-xl'
+          className='w-full h-full object-cover rounded-xl'
           src={heroImageSrc}
           alt="Appliance Repair Services"
         />
