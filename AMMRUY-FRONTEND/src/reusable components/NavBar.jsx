@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import DarkModeIcon from '@mui/icons-material/DarkMode';
 import DarkModeToggler from "./DarkModeToggler";
-// import  LightModeIcon from '@mui/icons-material/LightMode';
-// import { useSelector,useDispatch } from "react-redux";
-// import { toggleMode } from "../Redux/slices/themeSlice";
+
 import {
   Navbar,
   Collapse,
@@ -74,7 +71,7 @@ function NavListMenu() {
   const renderItems = navListMenuItems.map(
     ({ links, title, description }, key) => (
       <a key={key}>
-        <MenuItem className="flex items-center  rounded-lg hover:bg-black/10 pt-2 md:hover:text-black hover:text-white" >
+        <MenuItem className="flex items-center rounded-lg hover:bg-black/10 pt-2 md:hover:text-black hover:text-white" >
           <div >
             <Typography
               variant="h6"
@@ -188,9 +185,9 @@ export function NavBar({hover, className}) {
  
   return <div>
 
-    <Navbar className={`${className} ${'z-[9999]'} top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
+    {/* <Navbar className={`${className} ${'z-[9999]'} top-0 px-4 py-2 bg-[#00B09A] rounded-none`}> */}
 
-    <Navbar className={`${className} ${hover ? 'z-[9999] md:z-[9999]' : 'md:z-0 md:hidden'} top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
+    <Navbar className={`${className}  'z-[9999] md:z-[9999]' : 'md:z-0 md:hidden' top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
 
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
@@ -262,6 +259,6 @@ export function NavBar({hover, className}) {
       </Collapse>
     </Navbar>
     {className && <div className="pt-24"></div>}
-
+    {/* </Navbar> */}
     </div>  
 }
