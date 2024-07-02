@@ -187,7 +187,11 @@ export function NavBar({hover, className}) {
 
  
   return <div>
+
     <Navbar className={`${className} ${'z-[9999]'} top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
+
+    <Navbar className={`${className} ${hover ? 'z-[9999] md:z-[9999]' : 'md:z-0 md:hidden'} top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
+
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
