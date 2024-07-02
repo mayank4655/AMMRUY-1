@@ -9,6 +9,7 @@ import washingMachineImage from "../assets/Services-img/washingMachine.png";
 import { NavBar } from '../reusable components/NavBar';
 import Popup from './Popup';
 import { Link } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 const characters = [
@@ -53,7 +54,7 @@ export default function ServicePage() {
             <main className='w-full'>
                 <NavBar hover={hover} />
                 <Link to='/'>
-                <button className='bg-white text-black px-4 py-1 rounded-lg mx-12 my-2'>Back</button>
+                <button className='text-white px-4 py-1 rounded-lg mx-12 my-2 bg-[#00B09A]'>Back</button>
                 </Link>
                 <div
                     className="grid grid-cols-auto-fit-100 w-full">
