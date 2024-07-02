@@ -209,12 +209,16 @@ export function NavBar({ hover, className }) {
             </Button>
           </Link>
           {/* <Loginbtn/> */}
+<<<<<<< HEAD
           <Link to="/auth">
             <Button variant="gradient" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
 
               Sign Up
             </Button>
           </Link>
+=======
+          
+>>>>>>> 63d9c756a4566d2609bc5e20189c9d8fb625a6e4
         </div>
         <div className="lg:hidden absolute top-[8px] right-[49px]">
           <DarkModeToggler />
@@ -238,6 +242,7 @@ export function NavBar({ hover, className }) {
           {openNav && <NavList />}
           <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden ">
 
+<<<<<<< HEAD
             {openNav && <Button className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray" fullWidth>
               <Link to="/auth" className="hover:text-white">
                 Log In
@@ -250,6 +255,9 @@ export function NavBar({ hover, className }) {
               </Link>
             </Button>}
           </div>
+=======
+          
+>>>>>>> 63d9c756a4566d2609bc5e20189c9d8fb625a6e4
         </div>
       </Collapse>
     </Navbar>
