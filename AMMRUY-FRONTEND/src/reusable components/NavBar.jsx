@@ -1,5 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import DarkModeIcon from '@mui/icons-material/DarkMode';
+import DarkModeToggler from "./DarkModeToggler";
+// import  LightModeIcon from '@mui/icons-material/LightMode';
+// import { useSelector,useDispatch } from "react-redux";
+// import { toggleMode } from "../Redux/slices/themeSlice";
 import {
   Navbar,
   Collapse,
@@ -118,14 +123,14 @@ function NavListMenu() {
             </ListItem>
           </Typography>
         </MenuHandler>
-        <MenuList className="hidden w-full md:w-64 rounded-xl lg:block hover:bg-black/40">
+        <MenuList className="hidden w-full md:w-64 rounded-xl lg:block ">
           <ul className="grid grid-cols-1 gap-y-2 outline-none outline-0 ">
-            {renderItems}
+            { renderItems}
           </ul>
         </MenuList>
       </Menu>
       <div className="block lg:hidden">
-        <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
+        <Collapse open={isMobileMenuOpen}>{isMobileMenuOpen && renderItems}</Collapse>
       </div>
     </React.Fragment>
   );
@@ -179,9 +184,14 @@ export function NavBar({hover, className}) {
       () => window.innerWidth >= 960 && setOpenNav(false),
     );
   }, []);
+
  
   return <div>
+
+    <Navbar className={`${className} ${'z-[9999]'} top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
+
     <Navbar className={`${className} ${hover ? 'z-[9999] md:z-[9999]' : 'md:z-0 md:hidden'} top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
+
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
@@ -195,7 +205,12 @@ export function NavBar({hover, className}) {
         <div className="hidden lg:block">
           <NavList />
         </div>
+        {/* <div className="ml-6"> */}
+        {/* </div> */}
         <div className="hidden gap-2 lg:flex">
+       <div>
+       <DarkModeToggler/>
+       </div>
           <Link to="/auth">
             <Button variant="text" color="blue-gray" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
               Log In
@@ -209,6 +224,9 @@ export function NavBar({hover, className}) {
             </Button>
           </Link>
         </div>
+        <div className="lg:hidden absolute top-[8px] right-[49px]">
+       <DarkModeToggler/>
+       </div>
         <IconButton
 
           variant="text"
@@ -224,24 +242,23 @@ export function NavBar({hover, className}) {
         </IconButton>
       </div>
       <Collapse open={openNav}>
-        <div className="hover:none">
-        <NavList />
+        <div className="hover:none lg:hidden">
+       {openNav && <NavList />}
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden ">
           
-          <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray" fullWidth>
+          {openNav && <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray" fullWidth>
             <Link to="/auth" className="hover:text-white">
               Log In
             </Link>
-            {/* log  in */}
-          </Button>
+          </Button>}
 
-          <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50"  fullWidth>
+          {openNav && <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50"  fullWidth>
             <Link to="/auth" className="hover:text-white">
               Sign Up
             </Link>
-          </Button>
+          </Button>}
         </div>
-        </div>
+        </div> 
       </Collapse>
     </Navbar>
     {className && <div className="pt-24"></div>}
