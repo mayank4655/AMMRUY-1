@@ -11,8 +11,9 @@ import michelleImage from "../assets/testimonials-img/customer-6.jpg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import sliderColor from "@material-tailwind/react/theme/components/slider/sliderColor";
-import badgeColors from "@material-tailwind/react/theme/components/badge/badgeColors";
+
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 const testimonials = [
   {
@@ -57,6 +58,33 @@ const testimonials = [
   },
 ];
 
+function SampleNextArrow(props) {
+  const { onClick } = props;
+  return (
+    <div
+      className="absolute -right-6 top-1/2 transform -translate-y-1/2 cursor-pointer"
+      style={{ display: "block"}}
+      onClick={onClick}
+    >
+      <FaArrowRight />
+    </div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { onClick } = props;
+  return (
+    <div
+      className="absolute -left-6 top-1/2 transform -translate-y-1/2 cursor-pointer"
+      style={{ display: "block"}}
+      onClick={onClick}
+    >
+      <FaArrowLeft />
+    </div>
+  );
+}
+
+
 export default function Testimonials() {
   const settings = {
     dots: false,
@@ -65,6 +93,8 @@ export default function Testimonials() {
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     // badgeColors: redirect,
     responsive: [
       {
