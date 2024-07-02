@@ -11,8 +11,9 @@ import michelleImage from "../assets/testimonials-img/customer-6.jpg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import sliderColor from "@material-tailwind/react/theme/components/slider/sliderColor";
-import badgeColors from "@material-tailwind/react/theme/components/badge/badgeColors";
+
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 const testimonials = [
   {
@@ -57,6 +58,33 @@ const testimonials = [
   },
 ];
 
+function SampleNextArrow(props) {
+  const { onClick } = props;
+  return (
+    <div
+      className="absolute -right-6 top-1/2 transform -translate-y-1/2 cursor-pointer"
+      style={{ display: "block"}}
+      onClick={onClick}
+    >
+      <FaArrowRight />
+    </div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { onClick } = props;
+  return (
+    <div
+      className="absolute -left-6 top-1/2 transform -translate-y-1/2 cursor-pointer"
+      style={{ display: "block"}}
+      onClick={onClick}
+    >
+      <FaArrowLeft />
+    </div>
+  );
+}
+
+
 export default function Testimonials() {
   const settings = {
     dots: false,
@@ -65,6 +93,8 @@ export default function Testimonials() {
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     // badgeColors: redirect,
     responsive: [
       {
@@ -88,7 +118,7 @@ export default function Testimonials() {
   };
   return (
     <section className="testimonials">
-      <h1 className="text-5xl text-center font-bold mb-20">
+      <h1 className="text-5xl text-center font-bold mb-20 mx-1">
         Here’s what our clients have to say!
       </h1>
       <div className="w-3/4 m-auto">
@@ -97,9 +127,9 @@ export default function Testimonials() {
             {testimonials.map((d) => (
               <div
                 key={d.name}
-                className="bg-gradient-to-tr from-green-gradient from-30% to-dark-green-gradient text-white rounded-lg shadow-lg flex flex-col items-center w-64 relative transform transition-transform duration-300 hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+                className="bg-gradient-to-tr from-green-gradient from-30% to-dark-green-gradient text-white rounded-lg shadow-lg flex flex-col items-center w-64 relative z-0 transform transition-transform duration-300 hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
               >
-                <div className="testimonials-img w-20 h-20 bg-white rounded-full absolute -top-10 left-24">
+                <div className="testimonials-img w-20 h-20 bg-white rounded-full absolute -top-10 left-28">
                   <img
                     src={d.image}
                     className="w-full h-full rounded-full"

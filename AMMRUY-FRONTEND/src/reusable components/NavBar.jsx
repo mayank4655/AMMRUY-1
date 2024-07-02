@@ -71,7 +71,7 @@ function NavListMenu() {
   const renderItems = navListMenuItems.map(
     ({ links, title, description }, key) => (
       <a key={key}>
-        <MenuItem className="flex items-center rounded-lg hover:bg-black/10 pt-2 md:hover:text-black hover:text-white" >
+        <MenuItem className="flex items-center rounded-lg hover:bg-black/10 pt-2 md:hover:text-black hover:text-white"  >
           <div >
             <Typography
               variant="h6"
