@@ -2,10 +2,10 @@ import React from 'react'
 
 function Feedback() {
     return (
-        <main className='h-[100vh] w-min-h-screen mx-4 grid place-items-center'>
-            <div className="header">
-                <h1 className='text-3xl mx-auto md:text-5xl font-bold'>Submit Your Feedback...!!</h1>
-                <p className='md:text-2xl mt-8 text-xl'>Your comments are important for us and are crucial in <br />helping us provide the best service</p>
+        <main className='h-[100vh] w-min-h-screen mx-4 flex flex-col justify-center items-center'>
+            <div className="header flex flex-col justify-center items-center">
+                <h1 className='text-3xl mx-auto md:text-5xl font-bold '>Submit Your Feedback...!!</h1>
+                <p className='md:text-2xl mt-8  mb-8 text-xl'>Your comments are important for us and are crucial in helping us provide the best service</p>
             </div>
             <form 
             action='https://formspree.io/f/manwweeq'
