@@ -22,6 +22,7 @@ export default function Cards({
             setToggle(false);
         }, 4000);
     }
+    
     return <>
         <Card className="min-w-40 m-5 p-1">
             <CardHeader shadow={false} floated={false}
@@ -33,13 +34,13 @@ export default function Cards({
                 />
             </CardHeader>
             <CardBody className="md:h-32">
-                <div className="mb-2 font-medium text-center">
+                <div className="mb-2 font-medium text-center text-black ">
                     {name}
                 </div>
                 <Typography
                     variant="small"
                     color="gray"
-                    className="font-normal opacity-75"
+                    className="font-normal opacity-75 text-black"
                 >
                     {body}
                 </Typography>

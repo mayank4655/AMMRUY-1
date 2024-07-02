@@ -31,7 +31,7 @@ export function Footer() {
               <ul key={title}>
                 <Typography
                   variant="small"
-                  className="mt-2 md:mt-0 md:mb-3 font-semibold opacity-60 text-lg text-[#575757] "
+                  className="mt-2 md:mt-0 md:mb-3 font-semibold opacity-60 text-lg "
                 >
                   {title}
                 </Typography>

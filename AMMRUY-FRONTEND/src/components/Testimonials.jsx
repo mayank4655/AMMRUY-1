@@ -11,6 +11,8 @@ import michelleImage from "../assets/testimonials-img/customer-6.jpg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import sliderColor from "@material-tailwind/react/theme/components/slider/sliderColor";
+import badgeColors from "@material-tailwind/react/theme/components/badge/badgeColors";
 
 const testimonials = [
   {
@@ -63,6 +65,7 @@ export default function Testimonials() {
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
+    // badgeColors: redirect,
     responsive: [
       {
         breakpoint: 1024,

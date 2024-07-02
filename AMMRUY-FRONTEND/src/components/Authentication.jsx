@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { XMarkIcon } from '@heroicons/react/24/solid';
-
+import { useSelector } from 'react-redux';
 
 function Authentication() {
 
@@ -46,8 +46,9 @@ function Authentication() {
       console.error(error.response.data);
     }
   };
-
+  const {mode} = useSelector((state) => state.darkMode);
   return (
+    
     <>
       <main className='md:flex md:justify-between md:items-center md:gap-24 max-h-full'>
         <div className="signup text-center w-[100vw] mx-auto">
@@ -57,12 +58,12 @@ function Authentication() {
             </div>
             <div className="google flex justify-center items-center gap-2 bg-sky-200 rounded-full py-2 my-4">
               <span><FcGoogle /></span>
-              <span>Continue With Google</span>
+              <span className='text-black'>Continue With Google</span>
             </div>
             <div className="or flex justify-center items-center gap-1">
-              <div className='bg-black w-[80%] h-[0.1rem]'></div>
+              <div className='w-[80%] h-[0.1rem]' style={{background: mode? 'white':'black'}}></div>
               <span className='font-bold'>OR</span>
-              <div className='bg-black w-[80%] h-[0.1rem]'></div>
+              <div className='w-[80%] h-[0.1rem]' style={{background: mode? 'white':'black'}}></div>
             </div>
             <form onSubmit={submitHandler}>
               <div className="inputs">

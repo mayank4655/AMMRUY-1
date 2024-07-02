@@ -19,14 +19,20 @@ import FridgeRepair from './components/Fridge'
 import Tv from './components/Tv'
 import ACRepair from './components/ACRepair'
 import Microwave from './components/Microwave'
-
+import { useSelector } from 'react-redux'
+import DarkModeToggler from './reusable components/DarkModeToggler'
+import { colors } from '@mui/material'
 
 
 function App() {
+  const {mode} = useSelector((state) => state.darkMode);
+  
   return (
     <>
+    <div style={{background: mode? '#222':'white' , color:mode? 'white':'black'}}>
       {/* <NavBar /> */}
-      <Router>
+      <Router >
+        {/* <DarkModeToggler /> */}
         <Routes>
          {/* <Route path='/' element={<NavBar/>}></Route> */}
           {/* <Route path='/washing' element={<WashingMachine/>}></Route> */}
@@ -45,6 +51,7 @@ function App() {
       {/* <section id="footer">
       <Footer/>
       </section> */}
+      </div>
     </>
   )
 }
