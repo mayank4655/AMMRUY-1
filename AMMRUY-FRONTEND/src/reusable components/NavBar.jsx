@@ -214,12 +214,7 @@ export function NavBar({hover, className}) {
             </Button>
           </Link>
           {/* <Loginbtn/> */}
-          <Link to="/auth">
-            <Button variant="gradient" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
-              
-                Sign Up
-            </Button>
-          </Link>
+          
         </div>
         <div className="lg:hidden absolute top-[8px] right-[49px]">
        <DarkModeToggler/>
@@ -249,11 +244,7 @@ export function NavBar({hover, className}) {
             </Link>
           </Button>}
 
-          {openNav && <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50"  fullWidth>
-            <Link to="/auth" className="hover:text-white">
-              Sign Up
-            </Link>
-          </Button>}
+          
         </div>
         </div> 
       </Collapse>
