@@ -35,13 +35,13 @@ function Authentication() {
       console.log(response.data);
   
       if (login) {
-        localStorage.setItem('token', response.data.token); // Save token to local storage
+        localStorage.setItem('token', response.data.token);  
         setIsLoggedIn(true);
         alert("Login Success");
         window.location.href = '/';
       } else {
         alert("Signup success");
-        navigate('/login');
+        [isLoggedIn, setIsLoggedIn] = useState(true);
       }
     } catch (error) {
       console.error(error.response.data);
@@ -55,7 +55,7 @@ function Authentication() {
       setIsLoggedIn(false);
       alert("Logged out successfully");
        
-      navigate('/');  // route for login
+      navigate('/');   
     } catch (error) {
       console.error('Error logging out:', error);
        
@@ -154,13 +154,7 @@ function Authentication() {
                 {!login ? 'Login' : 'Signup'}
               </button>
 
-              <div className="logout-btn">
-                      {isLoggedIn && (  
-                    <button onClick={logoutHandler} className='btn-txt roboto-thin bg-white px-8 py-2 rounded-full'>
-                      Logout
-                    </button>
-                  )}
-              </div>
+               
 
 
             </div>
