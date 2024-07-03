@@ -13,7 +13,7 @@ function Authentication() {
     password: '',
     confirmPassword: ''
   });
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
   const loginHandler = () => {
     setLogin((prev) => !prev);
@@ -33,20 +33,37 @@ function Authentication() {
     try {
       const response = await axios.post(`http://localhost:5001${url}`, formData);
       console.log(response.data);
-       alert(login? "Login Success" : "Signup success");
-
-      //  if (login) {
-      //   navigat('/');
-      // } else {
-      //   navigate('/login');
-      // }
-
-       window.location.href = '/';
+  
+      if (login) {
+        localStorage.setItem('token', response.data.token); // Save token to local storage
+        setIsLoggedIn(true);
+        alert("Login Success");
+        window.location.href = '/';
+      } else {
+        alert("Signup success");
+        navigate('/login');
+      }
     } catch (error) {
       console.error(error.response.data);
     }
   };
+
+  const logoutHandler = async () => {
+    try {
+      await axios.post(`http://localhost:5001/logout`);
+              
+      setIsLoggedIn(false);
+      alert("Logged out successfully");
+       
+      navigate('/');  // route for login
+    } catch (error) {
+      console.error('Error logging out:', error);
+       
+    }
+  };
+
   const {mode} = useSelector((state) => state.darkMode);
+
   return (
     
     <>
@@ -136,7 +153,18 @@ function Authentication() {
                 className='btn-txt roboto-thin bg-white px-8 py-2 rounded-full'>
                 {!login ? 'Login' : 'Signup'}
               </button>
+
+              <div className="logout-btn">
+                      {isLoggedIn && (  
+                    <button onClick={logoutHandler} className='btn-txt roboto-thin bg-white px-8 py-2 rounded-full'>
+                      Logout
+                    </button>
+                  )}
+              </div>
+
+
             </div>
+            
           </div>
         </div>
       </main>

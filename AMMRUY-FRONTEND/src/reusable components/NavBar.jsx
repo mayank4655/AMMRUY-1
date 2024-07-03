@@ -1,6 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React,{useState , useEffect} from "react";
+import { Link, useNavigate } from "react-router-dom";
 import DarkModeToggler from "./DarkModeToggler";
+import axios from "axios";
 
 import {
   Navbar,
@@ -175,6 +176,27 @@ function NavList() {
 export function NavBar({hover, className}) {
   const [openNav, setOpenNav] = React.useState(false);
  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await axios.post(`http://localhost:5001/logout`);
+      localStorage.removeItem('token'); 
+      setIsLoggedIn(false);
+      alert("Logged out successfully");
+      navigate('/');
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -205,18 +227,24 @@ export function NavBar({hover, className}) {
        <div>
        <DarkModeToggler/>
        </div>
-          <Link to="/auth">
-            <Button variant="text" color="blue-gray" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
-              Log In
-            </Button>
-          </Link>
-          {/* <Loginbtn/> */}
-          <Link to="/auth">
-            <Button variant="gradient" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
-              
-                Sign Up
-            </Button>
-          </Link>
+       {!isLoggedIn ? (
+    <>
+      <Link to="/auth">
+        <Button variant="text" color="blue-gray" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
+          Log In
+        </Button>
+      </Link>
+      <Link to="/auth">
+        <Button variant="gradient" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
+          Sign Up
+        </Button>
+      </Link>
+    </>
+  ) : (
+    <Button onClick={handleLogout} className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray">
+      Log Out
+    </Button>
+  )}
         </div>
         <div className="lg:hidden absolute top-[8px] right-[49px]">
        <DarkModeToggler/>
@@ -240,17 +268,24 @@ export function NavBar({hover, className}) {
        {openNav && <NavList />}
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden ">
           
-          {openNav && <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray" fullWidth>
-            <Link to="/auth" className="hover:text-white">
-              Log In
-            </Link>
-          </Button>}
-
-          {openNav && <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50"  fullWidth>
-            <Link to="/auth" className="hover:text-white">
-              Sign Up
-            </Link>
-          </Button>}
+        {!isLoggedIn ? (
+                <>
+                  <Button className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray" fullWidth>
+                    <Link to="/auth" className="hover:text-white">
+                      Log In
+                    </Link>
+                  </Button>
+                  <Button className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50" fullWidth>
+                    <Link to="/auth" className="hover:text-white">
+                      Sign Up
+                    </Link>
+                  </Button>
+                </>
+              ) : (
+                <Button onClick={handleLogout} className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray" fullWidth>
+                  Log Out
+                </Button>
+              )}
         </div>
         </div> 
       </Collapse>
