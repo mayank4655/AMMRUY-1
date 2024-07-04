@@ -36,6 +36,8 @@ function Authentication() {
   
       if (login) {
         localStorage.setItem('token', response.data.token);  
+        localStorage.setItem('email',response.data.email);
+
         setIsLoggedIn(true);
         alert("Login Success");
         window.location.href = '/';
@@ -51,7 +53,8 @@ function Authentication() {
   const logoutHandler = async () => {
     try {
       await axios.post(`http://localhost:5001/logout`);
-              
+      localStorage.removeItem('email'); 
+            
       setIsLoggedIn(false);
       alert("Logged out successfully");
        

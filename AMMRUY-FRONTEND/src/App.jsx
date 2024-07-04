@@ -21,6 +21,8 @@ import { useSelector } from 'react-redux'
 import DarkModeToggler from './reusable components/DarkModeToggler'
 import { colors } from '@mui/material'
 
+import Rating from './components/Rating'
+
 function App() {
   const {mode} = useSelector((state) => state.darkMode);
   
@@ -39,6 +41,7 @@ function App() {
           <Route path='/washingmachine-repair' element={<WashingMachine />} />
           <Route path='/tv-repair' element={<Tv />} />
           <Route path='/microwave-repair' element={<Microwave />} />
+          <Route path='/ratings' element={<Rating/>}/>
         </Routes>
       </Router>
       </div>

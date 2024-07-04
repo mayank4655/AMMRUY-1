@@ -14,6 +14,8 @@ import ACRepair from './components/ACRepair';
 import FridgeRepair from './components/Fridge';
 import RORepair from './components/RORepair.jsx';
 
+import Rating from './src/components/Rating.jsx';
+
 function App() {
   return (
     <>
@@ -28,6 +30,8 @@ function App() {
           <Route path='/ac-repair' element={<ACRepair />} />
           <Route path='/fridge-repair' element={<FridgeRepair />} />
           <Route path='/ro-repair' element={<RORepair />} />
+          <Route path='/ratings' element={<Rating/>}/>
+
         </Routes>
       </Router>
       {/* <section id="footer">

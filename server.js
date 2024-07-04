@@ -31,6 +31,43 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
+const ratingSchema = new mongoose.Schema({
+  service: { type: String, required: true },  
+  rating: { 
+    type: Number, 
+    required: true,
+    min: 1,
+    max: 5   
+  }
+});
+
+const Rating = mongoose.model('Rating', ratingSchema);
+
+
+
+app.post('/ratings', async (req, res) => {
+  const { service, rating } = req.body;
+  if (rating < 1 || rating > 5) {
+    return res.status(400).json({ message: 'Rating must be between 1 and 5' });
+  }
+
+  try {
+    const newRating = new Rating({ service, rating });
+    await newRating.save();
+    res.json(newRating);
+  } catch (error) {
+    res.status(500).json({ message: 'Error creating rating', error });
+  }
+});
+
+app.get('/ratings', async (req, res) => {
+  const ratings = await Rating.find();
+  res.json(ratings);
+});
+
+
+
+
 app.post('/signup', async (req, res) => {
   const { email, password, confirmPassword } = req.body;
 
@@ -78,7 +115,7 @@ app.post('/login', async (req, res) => {
       maxAge: 3600000  
     });
 
-    res.status(200).json({ message: 'Logged in successfully',token });
+    res.status(200).json({ message: 'Logged in successfully',token ,email});
   } catch (error) {
     res.status(500).json({ message: 'Error logging in', error });
   }
@@ -86,7 +123,7 @@ app.post('/login', async (req, res) => {
 
 app.post('/logout', (req, res) => {
   res.clearCookie('token');
-
+  res.clearCookie('email');
   res.status(200).json({ message: 'Logged out successfully' });
 });
 
