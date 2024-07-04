@@ -7,13 +7,13 @@ import { useSelector } from 'react-redux';
 
 function Authentication() {
 
-  const [login, setLogin] = useState(false);
+  let [login, setLogin] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     confirmPassword: ''
   });
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  let [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
   const loginHandler = () => {
     setLogin((prev) => !prev);
