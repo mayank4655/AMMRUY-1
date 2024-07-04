@@ -77,7 +77,7 @@ function NavListMenu() {
             <Typography
               variant="h6"
               color="blue-gray"
-              className="flex items-center text-sm font-semibold"
+              className="flex items-center text-sm font-semibold pl-3 m-1"
             >
               <Link to={links}>
               {title}
@@ -101,7 +101,7 @@ function NavListMenu() {
         <MenuHandler>
           <Typography as="div" variant="small" className="font-medium">
             <ListItem
-              className="flex items-center gap-2 py-2 pr-4 font-medium text-white-900 text-base hover:bg-slate-600/30"
+              className="flex items-center gap-2 py-2 px-4 font-medium text-white-900 text-base hover:bg-slate-600/30"
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
@@ -144,7 +144,7 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center  gap-2 py-2 pr-4 hover:bg-slate-600/30 hover:text-white text-base"><Link to="/">Home</Link></ListItem>
+        <ListItem className="flex items-center  gap-2 py-2 px-4 hover:bg-slate-600/30 hover:text-white text-base"><Link to="/">Home</Link></ListItem>
       </Typography>
       <NavListMenu />
       <Typography
@@ -154,7 +154,7 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center  gap-2 py-2 pr-4 hover:bg-slate-600/30 hover:text-white text-base">
+        <ListItem className="flex items-center  gap-2 py-2 px-4 hover:bg-slate-600/30 hover:text-white text-base">
           Contact Us
         </ListItem>
       </Typography>
@@ -165,7 +165,7 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center  gap-2 py-2 pr-4 hover:bg-slate-600/30 hover:text-white text-base">
+        <ListItem className="flex items-center  gap-2 py-2 px-4 hover:bg-slate-600/30 hover:text-white text-base">
           <Link to="/about">About Us</Link>
         </ListItem>
       </Typography>
@@ -266,7 +266,7 @@ export function NavBar({hover, className}) {
       <Collapse open={openNav}>
         <div className="hover:none lg:hidden">
        {openNav && <NavList />}
-        <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden ">
+       {openNav && <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden ">
           
         {!isLoggedIn ? (
                 <>
@@ -286,7 +286,7 @@ export function NavBar({hover, className}) {
                   Log Out
                 </Button>
               )}
-        </div>
+        </div>}
         </div> 
       </Collapse>
     </Navbar>
