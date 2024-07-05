@@ -94,13 +94,13 @@ const Rating = () => {
         onChange={handleServiceChange}
         className="px-4 py-2 mb-4 border border-gray-300 rounded-md bg-gradient-to-tr from-green-gradient from-30% to-dark-green-gradient text-white"
       >
-        <option value="">Select a Service</option>
-        <option value="AC Repair">AC Repair</option>
-        <option value="Fridge Repair">Fridge Repair</option>
-        <option value="Microwave Repair">Microwave Repair</option>
-        <option value="RO Repair">RO Repair</option>
-        <option value="TV Repair">TV Repair</option>
-        <option value="Washing Machine Repair">Washing Machine Repair</option>
+        <option value="" className='text-black'>Select a Service</option>
+        <option value="AC Repair"className='text-black'>AC Repair</option>
+        <option value="Fridge Repair"className='text-black'>Fridge Repair</option>
+        <option value="Microwave Repair"className='text-black'>Microwave Repair</option>
+        <option value="RO Repair"className='text-black'>RO Repair</option>
+        <option value="TV Repair"className='text-black'>TV Repair</option>
+        <option value="Washing Machine Repair"className='text-black'>Washing Machine Repair</option>
       </select>
       <ReactStars
         count={5}
