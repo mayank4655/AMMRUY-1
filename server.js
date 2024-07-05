@@ -43,9 +43,22 @@ const ratingSchema = new mongoose.Schema({
 
 const Rating = mongoose.model('Rating', ratingSchema);
 
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (!token) {
+    return res.status(401).json({ message: 'Access denied' });
+  }
+  try {
+    const verified = jwt.verify(token, 'your_jwt_secret');
+    req.user = verified;
+    next();
+  } catch (error) {
+    res.status(400).json({ message: 'Invalid token' });
+  }
+};
 
-
-app.post('/ratings', async (req, res) => {
+app.post('/ratings',authenticateToken, async (req, res) => {
   const { service, rating } = req.body;
   if (rating < 1 || rating > 5) {
     return res.status(400).json({ message: 'Rating must be between 1 and 5' });
@@ -126,22 +139,6 @@ app.post('/logout', (req, res) => {
   res.clearCookie('email');
   res.status(200).json({ message: 'Logged out successfully' });
 });
-
-const authenticateToken = (req, res, next) => {
-  const token = req.cookies.token;
-
-  if (!token) {
-    return res.status(401).json({ message: 'Access denied' });
-  }
-
-  try {
-    const verified = jwt.verify(token, 'your_jwt_secret');
-    req.user = verified;
-    next();
-  } catch (error) {
-    res.status(400).json({ message: 'Invalid token' });
-  }
-};
 
 app.get('/protected', authenticateToken, (req, res) => {
   res.status(200).json({ message: 'Protected content' });

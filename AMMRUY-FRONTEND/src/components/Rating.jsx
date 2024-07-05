@@ -34,7 +34,17 @@ const Rating = () => {
 
   const submitRating = async () => {
     try {
-      await axios.post('http://localhost:5001/ratings', { service: selectedService, rating: newRating });
+        const token = localStorage.getItem('token');
+        if (!token) {
+         
+          return alert("Please Login First to Give Rating")
+        }
+
+      await axios.post('http://localhost:5001/ratings', { service: selectedService, rating: newRating },{
+        headers: {
+            Authorization: `Bearer ${token}`
+          }
+      });
       fetchRatings();
     } catch (error) {
       console.error('Error submitting rating:', error);
@@ -77,12 +87,12 @@ const Rating = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-5xl font-bold mb-6">Rate Our Services</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white-100">
+      <h1 className="text-5xl font-bold mb-6 text-center">Rate Our Services</h1>
       <select
         value={selectedService}
         onChange={handleServiceChange}
-        className="px-4 py-2 mb-4 border border-gray-300 rounded-md "
+        className="px-4 py-2 mb-4 border border-gray-300 rounded-md bg-gradient-to-tr from-green-gradient from-30% to-dark-green-gradient text-white"
       >
         <option value="">Select a Service</option>
         <option value="AC Repair">AC Repair</option>
@@ -101,7 +111,7 @@ const Rating = () => {
       />
       <button
         onClick={submitRating}
-        className="BTN-color px-4 py-2 bg-gradient-to-tr from-green-gradient from-30% to-dark-green-gradient text-white rounded-md shadow hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="BTN-color px-4 py-2 bg-gradient-to-tr from-green-gradient from-30% to-dark-green-gradient text-white rounded-md shadow hover:scale-105 focus:outline-none    "
       >
         Submit Rating
       </button>
@@ -112,8 +122,8 @@ const Rating = () => {
         {ratings.length > 3 ? (
           <Slider {...settings} className="w-full">
             {ratings.map((rating) => (
-              <div key={rating._id} className="p-4 border border-gray-300 rounded-lg bg-gradient-to-tr from-green-gradient from-30% to-dark-green-gradient text-center transition-transform duration-300 hover:scale-105 sm:w-64 md:w-1/2 lg:w-1/3 h-30">
-                <h3 className="text-xl font-semibold">{rating.service}</h3>
+              <div key={rating._id} className="p-4 border border-gray-300 rounded-lg bg-gradient-to-tr from-green-gradient from-30% to-dark-green-gradient text-center  transition-transform duration-300 hover:scale-105 sm:w-64 md:w-1/2 lg:w-1/3 h-30">
+                <h3 className="text-xl font-semibold text-white">{rating.service}</h3>
                 <div className="mt-2 flex justify-center items-center">
                   <ReactStars
                     count={5}
@@ -131,7 +141,7 @@ const Rating = () => {
           <div className="w-full flex justify-center">
             {ratings.map((rating) => (
               <div key={rating._id} className="p-4 border border-gray-300 rounded-lg bg-gradient-to-tr from-green-gradient from-30% to-dark-green-gradient text-center transition-transform duration-300 hover:scale-105 mx-2 sm:w-64 md:w-1/2 lg:w-1/3 h-30">
-                <h3 className="text-xl font-semibold">{rating.service}</h3>
+                <h3 className="text-xl font-semibold text-white">{rating.service}</h3>
                 <div className="mt-2 flex justify-center items-center">
                   <ReactStars
                     count={5}
