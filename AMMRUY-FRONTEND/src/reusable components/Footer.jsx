@@ -3,15 +3,15 @@ import { Typography } from "@material-tailwind/react";
 const LINKS = [
   {
     title: "Company",
-    items: ["Home", "Services", "Contact Us", "About us"],
+    items: ["Home" , "Contact Us", "About us","Terms of use","Privacy ploicy","We are hiring"],
   },
   {
-    title: "Email Support",
-    items: ["web@support.com"],
+    title: "Services",
+    items: ["Ac Service","Fridge Service","Ro Service","Microwave Service","TV Service","Washing Machine Service"],
   },
   {
-    title: "Call Us",
-    items: ["+91 999999999"],
+    title: "Support",
+    items: ["Ask the Expert","Testimonials","Request Service","Plans & Packages"],
   },
 ];
 
@@ -19,14 +19,14 @@ const currentYear = new Date().getFullYear();
 
 export function Footer() {
   return (
-    <footer className="relative w-full mt-3">
+    <footer className="relative w-full mt-3 bg-gray-400">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="flex-none md:flex flex-wrap justify-between gap-4 ">
-          <Typography variant="h5"  className="mb-6">
+          {/* <Typography variant="h5"  className="mb-6">
             
             SharpCareer Solutions
-          </Typography>
-          <div className="flex-none basis-7/8 md:flex md:flex-wrap justify-around gap-5 md:pl-30">
+          </Typography> */}
+          <div className="flex-none basis-7/8 md:flex md:flex-wrap justify-around gap-[5.25rem] md:pl-30 pt-4">
             {LINKS.map(({ title, items }) => (
               <ul key={title}>
                 <Typography
@@ -49,6 +49,10 @@ export function Footer() {
                 ))}
               </ul>
             ))}
+          </div>
+          <div className="flex self-center gap-2">
+            <input type="newsletter" name="newsletter-form" placeholder="Email address" className="rounded-[3px] w-[232px]"/>
+            <button className='BTN-color roboto-thin text-white px-8 py-2 rounded-full'>Subscribe</button>
           </div>
         </div>
         <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
