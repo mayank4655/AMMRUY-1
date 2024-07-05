@@ -2,6 +2,7 @@ import React,{useState , useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DarkModeToggler from "./DarkModeToggler";
 import axios from "axios";
+import logo from "../assets/logo.png";
 
 import {
   Navbar,
@@ -207,7 +208,7 @@ export function NavBar({hover, className}) {
  
   return <div>
 
-    <Navbar className={`${className} ${hover ? 'z-[9999]': 'z-[999] md:hidden'} top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
+    <Navbar className={`${className}  'z-[9999] z-[999] md:hidden' top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
@@ -215,8 +216,11 @@ export function NavBar({hover, className}) {
           variant="h6"
           className="mr-4 cursor-pointer py-1.5 lg:ml-2 text-xl hover:text-white"
         >
+       <div className="flex flex-row items-center p-0 m-0">
+       <img src={logo} alt="logo" className="max-w-[12%] pr-2" />
           {/* SharpCareer Solutions */}
           <Link to="/">SharpCareer Solutions</Link>
+       </div>
         </Typography>
         <div className="hidden lg:block">
           <NavList />
