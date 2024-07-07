@@ -44,12 +44,13 @@ export default function TvRepair() {
   const closePopup = () => {
     setServiceBooked(false);
   };
+  const {mode} = useSelector((state) => state.darkMode);
 
   return (
     <>
       {serviceBooked && (
-        <div className="fixed inset-0 bg-lime-100 bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2">
+        <div className="fixed inset-0 bg-lime-100 bg-opacity-50 flex justify-center items-center z-50" >
+          <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2" >
             <div className="para w-full md:w-4/5 md:py-10 py-2 mx-auto text-center">
               <p className="text-xl md:text-2xl font-bold">Thank you for booking a service with us!</p><br />
               <p>
@@ -68,10 +69,10 @@ export default function TvRepair() {
       {showModal && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2 max-h-full overflow-y-auto">
-            <h2 className="text-2xl mb-4">Choose Services</h2>
-            <select multiple value={selectedServices} onChange={handleServiceChange} className="mb-4 p-2 border rounded-md bg-gray-50 w-full">
+            <h2 className="text-2xl mb-4 text-black">Choose Services</h2>
+            <select multiple value={selectedServices} onChange={handleServiceChange} className="mb-4 p-2 border rounded-md bg-gradient-to-r from-teal-500 to-lime-400 w-full">
               {Object.keys(services).map((service) => (
-                <option key={service} value={service}>{service}</option>
+                <option key={service} value={service} >{service}</option>
               ))}
             </select>
             {selectedServices.length > 0 && (
@@ -95,13 +96,13 @@ export default function TvRepair() {
             <div className="w-full md:w-1/2 h-full">
               <img className="w-full h-full object-cover object-center" src={tvImage} alt="TV Repair" />
             </div>
-            <div className="w-full bg-white md:w-1/2 flex flex-col justify-center p-6">
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4 text-center">TV Repair</h2>
-              <p className="text-lg lg:text-xl text-gray-600 mb-6">
+            <div className="w-full bg-white md:w-1/2 flex flex-col justify-center p-6" style={{background: mode? 'black':'white', color:mode? 'white':'black'}}>
+              <h2 className="text-4xl lg:text-5xl font-bold  mb-4 text-center">TV Repair</h2>
+              <p className="text-lg lg:text-xl  mb-6">
                 LED and LCD TV Service Center / LED TV and LED LCD Repair / LCD / LED TV Technician fix all types of LCD / LCD troubles. In which Plasma TV, we understand your problem and repair your LED TV / LCD TV and provide repair keeping in mind your satisfaction. Call the number given to take service.
               </p>
-              <h3 className="text-xl lg:text-2xl font-semibold text-gray-800 mb-4">Services Offered:</h3>
-              <ul className="list-disc list-inside text-lg lg:text-xl text-gray-600 mb-6">
+              <h3 className="text-xl lg:text-2xl font-semibold  mb-4">Services Offered:</h3>
+              <ul className="list-disc list-inside text-lg lg:text-xl  mb-6">
                 {Object.keys(services).map((service) => (
                   <li key={service}>{service} - ₹{services[service]}</li>
                 ))}

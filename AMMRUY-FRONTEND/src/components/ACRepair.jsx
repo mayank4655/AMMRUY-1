@@ -78,6 +78,7 @@ export default function ACRepair() {
   const handleACTypeChange = (type) => {
     setSelectedACType(type);
   };
+  const {mode} = useSelector((state) => state.darkMode);
 
   return (
     <>
@@ -102,7 +103,7 @@ export default function ACRepair() {
       {showModal && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2 max-h-full overflow-y-auto">
-            <h2 className="text-2xl mb-4">Choose Services</h2>
+            <h2 className="text-2xl mb-4 text-black">Choose Services</h2>
             <select multiple value={selectedServices} onChange={handleServiceChange} className="mb-4 p-2 border rounded-md bg-gradient-to-r from-teal-500 to-lime-400 w-full text-white">
               {selectedACType && Object.keys(services[selectedACType]).map((service) => (
                 <option key={service} value={service}>{service} - ₹{services[selectedACType][service]}</option>
@@ -122,16 +123,16 @@ export default function ACRepair() {
           </div>
         </div>
       )}
-      <main className="w-full h-screen bg-gradient-to-r from-blue-100 to-teal-100">
+      <main className="w-full h-screen ">
         <NavBar /> {/* Include NavBar component */}
         <section className="flex items-center justify-center h-full">
           <div className="flex flex-col md:flex-row w-full h-full bg-white shadow-md rounded-lg overflow-hidden">
             <div className="w-full md:w-1/2 h-full">
-              <img className="w-full h-full object-cover object-center opacity-80" src={acImage} alt="AC Repair" />
+              <img className="w-full h-full object-cover object-center" src={acImage} alt="AC Repair" />
             </div>
-            <div className="w-full md:w-1/2 bg-white flex flex-col justify-center p-6">
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4 text-center">AC Repair</h2>
-              <p className="text-lg lg:text-xl text-gray-600 mb-6">
+            <div className="w-full md:w-1/2 bg-white flex flex-col justify-center p-6" style={{background: mode? 'black':'white' , color:mode? 'white':'black'}}>
+              <h2 className="text-4xl lg:text-5xl font-bold  mb-4 text-center">AC Repair</h2>
+              <p className="text-lg lg:text-xl  mb-6">
                 Our technicians are dedicated to fixing your AC issues promptly and effectively. We offer comprehensive repair services to ensure your AC operates efficiently.
               </p>
               <div className="flex justify-center mb-6">
@@ -147,7 +148,7 @@ export default function ACRepair() {
               {selectedACType && (
                 <div>
                   <h3 className="text-2xl mb-4">Services Offered for {selectedACType.toUpperCase()} AC:</h3>
-                  <ul className="list-disc list-inside text-lg lg:text-xl text-gray-600 mb-6">
+                  <ul className="list-disc list-inside text-lg lg:text-xl  mb-6">
                     {Object.keys(services[selectedACType]).map((service) => (
                       <li key={service}>{service} - ₹{services[selectedACType][service]}</li>
                     ))}
