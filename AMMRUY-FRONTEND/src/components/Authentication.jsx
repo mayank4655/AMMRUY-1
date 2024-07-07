@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useFetcher, useNavigate } from "react-router-dom";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useSelector } from "react-redux";
+import { API_BASE_URL } from './config';
 
 function Authentication() {
   let [login, setLogin] = useState(false);
@@ -34,7 +35,7 @@ function Authentication() {
 
     try {
       const response = await axios.post(
-        `https://sharp-backend.onrender.com${url}`,
+        `${API_BASE_URL}${url}`,
         formData
       );
       console.log(response.data);
@@ -57,7 +58,9 @@ function Authentication() {
 
   const logoutHandler = async () => {
     try {
-      await axios.post("https://sharp-backend.onrender.com/logout");
+      await axios.post(
+        `${API_BASE_URL}/logout`
+      );
       localStorage.removeItem("email");
 
       setIsLoggedIn(false);
