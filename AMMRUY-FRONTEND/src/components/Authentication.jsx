@@ -15,6 +15,7 @@ function Authentication() {
   });
   let [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+
   const loginHandler = () => {
     setLogin((prev) => !prev);
     setclicked(!clicked);
