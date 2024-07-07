@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5001;
 const mongoURI = process.env.MONGO_URI;
 
 app.use(cors({
-  origin: 'https://sharp-backend.onrender.com',  
+  origin: 'https://sharpcareer-solutions.netlify.app',  
   credentials: true
 }));
 app.use(express.json());
