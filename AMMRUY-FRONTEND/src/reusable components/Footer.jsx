@@ -1,6 +1,8 @@
 import { Typography } from "@material-tailwind/react";
 import logo from "../assets/logo.png"
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector } from "react-redux";
+import { showPopup } from "../Redux/slices/popupSlice";
+import { useState } from "react";
 
 const LINKS = [
   {
@@ -24,7 +26,38 @@ const currentYear = new Date().getFullYear();
 
 export function Footer() {
   const {mode} = useSelector((state) => state.darkMode);
+  const dispatch = useDispatch();
+  const status = useSelector((state) => state.popup.show);
+  const [serviceBooked, setServiceBooked] = useState(false);
+
+  const [formvalue, setFormValue] = useState({email:''});
+  const [disable, setDisable] = useState('typing');
+
+  const handleinput = (e) =>{
+    const {name, value} = e.target;
+    setFormValue({...formvalue, [name]:value});
+  }
+  const handlesubmit = (e) =>{
+    e.preventDefault();
+    setServiceBooked(true);
+    dispatch(showPopup());
+    setTimeout(() => {
+      dispatch(showPopup());
+      setServiceBooked(false);
+    }, 2000);
+    setDisable('submitted');
+    
+  }
+
   return (
+    <>
+    {serviceBooked && <div className="fixed inset-0 bg-lime-100 bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2">
+            <div className="para w-full md:w-4/5 md:py-10 py-2 mx-auto text-center">
+              <p className="text-xl md:text-2xl font-bold text-black">Thank you! You have Subscribed to our daily Newsletter</p><br />
+            </div>
+          </div>
+        </div>}
     <footer className="relative w-full mt-3 " style={{background: mode? '#131212':'rgb(156 163 175)'}}>
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="flex-none md:flex flex-wrap justify-between gap-4 ">
@@ -54,10 +87,12 @@ export function Footer() {
           </div>
           <div className="flex flex-col justify-center">
             <div className="text-xl pb-3 font-semibold"><h1>Newsletter</h1></div>
+            <form onSubmit={handlesubmit}>
            <div className="flex self-start md:self-center gap-2 flex-col md:flex-row">
-           <input type="newsletter" name="newsletter-form" placeholder="Email address" className="rounded-[3px] h-9 md:w-[294px]" />
-           <button className='BTN-color roboto-thin text-white px-8 py-2 rounded-full' >Subscribe</button>
+           <input type="email" name="email" placeholder="Email address" className="rounded-[3px] h-9 md:w-[294px]" value={formvalue.email} onChange={handleinput}/>
+           <button disabled={formvalue.email.length===0 || disable==='submitted'} className='BTN-color roboto-thin text-white px-8 py-2 rounded-full' >Subscribe</button>
            </div>
+           </form>
             <div className="flex gap-4 text-blue-gray-900 pt-2">
             <Typography as="a" href="#" className="opacity-80 transition-opacity hover:opacity-100">
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -122,5 +157,6 @@ export function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }
