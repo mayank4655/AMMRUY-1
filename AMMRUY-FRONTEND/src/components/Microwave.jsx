@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import fridgeImage from "../assets/Services-img/fridge.png";
+import React, { useState, useEffect } from 'react';
+import ovenImage from "../assets/Services-img/microwave.png";
 import { useDispatch, useSelector } from 'react-redux';
 import { showPopup } from '../Redux/slices/popupSlice';
 import { NavBar } from '../reusable components/NavBar'; // Ensure NavBar component path is correct
 
-export default function FridgeRepair() {
+export default function Microwave() {
   const dispatch = useDispatch();
   const status = useSelector((state) => state.popup.show);
 
@@ -13,11 +13,9 @@ export default function FridgeRepair() {
   const [serviceBooked, setServiceBooked] = useState(false);
 
   const services = {
-    "Fridge Installation": 500,
-    "Fridge Maintenance": 400,
-    "Fridge Repair": 1000,
-    "Thermostat Check": 300,
-    "Compressor Replacement": 800
+    "Microwave Installation": 120,
+    "Microwave Maintenance": 80,
+    "Microwave Repair": 100,
   };
 
   const handleServiceChange = (e) => {
@@ -95,12 +93,12 @@ export default function FridgeRepair() {
         <section className="flex items-center justify-center h-full">
           <div className="flex flex-col md:flex-row w-full h-full bg-white shadow-md rounded-lg overflow-hidden">
             <div className="w-full md:w-1/2 h-full">
-              <img className="w-full h-full object-cover object-center opacity-80" src={fridgeImage} alt="Fridge Repair" />
+              <img className="w-full h-full object-cover object-center opacity-80" src={ovenImage} alt="Microwave Repair" />
             </div>
             <div className="w-full md:w-1/2 bg-white flex flex-col justify-center p-6">
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4 text-center">Fridge Repair</h2>
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4 text-center">Microwave Repair</h2>
               <p className="text-lg lg:text-xl text-gray-600 mb-6">
-                Our technicians are dedicated to fixing your fridge issues promptly and effectively. We offer comprehensive repair services to ensure your fridge operates efficiently.
+                Through thorough inspection and repair of your microwave, we address problems like noise, touchpad issues, and more by our expert engineers.
               </p>
               <h3 className="text-xl lg:text-2xl font-semibold text-gray-800 mb-4">Services Offered:</h3>
               <ul className="list-disc list-inside text-lg lg:text-xl text-gray-600 mb-6">
@@ -122,3 +120,9 @@ export default function FridgeRepair() {
     </>
   );
 }
+
+
+
+
+
+
