@@ -47,6 +47,7 @@ export default function FridgeRepair() {
     setServiceBooked(false);
   };
 
+  const {mode} = useSelector((state) => state.darkMode);
   return (
     <>
       {serviceBooked && (
@@ -70,8 +71,8 @@ export default function FridgeRepair() {
       {showModal && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2 max-h-full overflow-y-auto">
-            <h2 className="text-2xl mb-4">Choose Services</h2>
-            <select multiple value={selectedServices} onChange={handleServiceChange} className="mb-4 p-2 border rounded-md bg-gray-50 w-full">
+            <h2 className="text-2xl mb-4 text-black">Choose Services</h2>
+            <select multiple value={selectedServices} onChange={handleServiceChange} className="mb-4 p-2 border rounded-md bg-gradient-to-r from-teal-500 to-lime-400 w-full">
               {Object.keys(services).map((service) => (
                 <option key={service} value={service}>{service}</option>
               ))}
@@ -90,20 +91,20 @@ export default function FridgeRepair() {
           </div>
         </div>
       )}
-      <main className="w-full h-screen bg-gradient-to-r from-blue-100 to-teal-100">
+      <main className="w-full h-screen " >
         <NavBar /> {/* Include NavBar component */}
-        <section className="flex items-center justify-center h-full">
-          <div className="flex flex-col md:flex-row w-full h-full bg-white shadow-md rounded-lg overflow-hidden">
+        <section className="flex items-center justify-center h-full" >
+          <div className="flex flex-col md:flex-row w-full h-full bg-white shadow-md rounded-lg overflow-hidden" >
             <div className="w-full md:w-1/2 h-full">
               <img className="w-full h-full object-cover object-center opacity-80" src={fridgeImage} alt="Fridge Repair" />
             </div>
-            <div className="w-full md:w-1/2 bg-white flex flex-col justify-center p-6">
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4 text-center">Fridge Repair</h2>
-              <p className="text-lg lg:text-xl text-gray-600 mb-6">
+            <div className="w-full md:w-1/2  flex flex-col justify-center p-6" style={{background: mode? 'black':'white', color:mode? 'white':'black'}}>
+              <h2 className="text-4xl lg:text-5xl font-bold  mb-4 text-center">Fridge Repair</h2>
+              <p className="text-lg lg:text-xl mb-6">
                 Our technicians are dedicated to fixing your fridge issues promptly and effectively. We offer comprehensive repair services to ensure your fridge operates efficiently.
               </p>
-              <h3 className="text-xl lg:text-2xl font-semibold text-gray-800 mb-4">Services Offered:</h3>
-              <ul className="list-disc list-inside text-lg lg:text-xl text-gray-600 mb-6">
+              <h3 className="text-xl lg:text-2xl font-semibold ">Services Offered:</h3>
+              <ul className="list-disc list-inside text-lg lg:text-xl ">
                 {Object.keys(services).map((service) => (
                   <li key={service}>{service} - ₹{services[service]}</li>
                 ))}

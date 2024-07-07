@@ -68,8 +68,8 @@ export default function WashingMachine() {
       {showModal && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2 max-h-full overflow-y-auto">
-            <h2 className="text-2xl mb-4">Choose Services</h2>
-            <select multiple value={selectedServices} onChange={handleServiceChange} className="mb-4 p-2 border rounded-md bg-gray-50 w-full">
+            <h2 className="text-2xl mb-4 text-black">Choose Services</h2>
+            <select multiple value={selectedServices} onChange={handleServiceChange} className="mb-4 p-2 border rounded-md bg-gradient-to-r from-teal-500 to-lime-400 w-full">
               {Object.keys(services).map((service) => (
                 <option key={service} value={service}>{service}</option>
               ))}
