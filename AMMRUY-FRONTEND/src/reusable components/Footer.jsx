@@ -6,14 +6,17 @@ const LINKS = [
   {
     title: "Company",
     items: ["Home" , "Contact Us", "About us","Terms of use","Privacy ploicy","We are hiring"],
+    location: ["/","#contact","/about","/","/","/"]
   },
   {
     title: "Services",
     items: ["Ac Service","Fridge Service","Ro Service","Microwave Service","TV Service","Washing Machine Service"],
+    location: ["/ac-repair","/fridge-repair","/ro-repair","/microwave-repair","/tv-repair","/washingmachine-repair"]
   },
   {
     title: "Support",
     items: ["Ask the Expert","Testimonials","Request Service","Plans & Packages"],
+    location: ["/","#Testimonials","/","/"]
   },
 ];
 
@@ -26,7 +29,7 @@ export function Footer() {
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="flex-none md:flex flex-wrap justify-between gap-4 ">
           <div className="flex-none basis-7/8 md:flex md:flex-wrap justify-around gap-[5.25rem] md:pl-30 pt-4">
-            {LINKS.map(({ title, items }) => (
+            {LINKS.map(({ title, items, location }) => (
               <ul key={title}>
                 <Typography
                   variant="small"
@@ -38,7 +41,7 @@ export function Footer() {
                   <li key={link}>
                     <Typography
                       as="a"
-                      href="#"
+                      href={location[items.indexOf(link)]}
                       color="gray"
                       className="py-1 font-normal transition-colors hover:underline opacity-70"
                     >
@@ -53,7 +56,7 @@ export function Footer() {
             <div className="text-xl pb-3 font-semibold"><h1>Newsletter</h1></div>
            <div className="flex self-start md:self-center gap-2 flex-col md:flex-row">
            <input type="newsletter" name="newsletter-form" placeholder="Email address" className="rounded-[3px] h-9 md:w-[294px]" />
-           <button className='BTN-color roboto-thin text-white px-8 py-2 rounded-full'>Subscribe</button>
+           <button className='BTN-color roboto-thin text-white px-8 py-2 rounded-full' onClick={handlesubmit}>Subscribe</button>
            </div>
             <div className="flex gap-4 text-blue-gray-900 pt-2">
             <Typography as="a" href="#" className="opacity-80 transition-opacity hover:opacity-100">
