@@ -1,5 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React,{useState , useEffect} from "react";
+import { Link, useNavigate } from "react-router-dom";
+import DarkModeToggler from "./DarkModeToggler";
+import axios from "axios";
+import logo from "../assets/logo.png";
+
 import {
   Navbar,
   Collapse,
@@ -34,32 +38,32 @@ const navListMenuItems = [
   {
     title: "AC Repair",
     description: "Find the perfect solution for your needs.",
-    icon: SquaresPlusIcon,
+    links: "/ac-repair",
   },
   {
     title: "Fridge Repair",
     description: "Meet and learn about our dedication",
-    icon: UserGroupIcon,
+    links: "/fridge-repair",
   },
   {
     title: "Microwave Repair",
     description: "Find the perfect solution for your needs.",
-    icon: Bars4Icon,
+    links: "/microwave-repair",
   },
   {
     title: "RO Repair",
     description: "Learn how we can help you achieve your goals.",
-    icon: SunIcon,
+    links: "/ro-repair",
   },
   {
     title: "TV Repair",
     description: "Reach out to us for assistance or inquiries",
-    icon: GlobeAmericasIcon,
+    links: "/tv-repair",
   },
   {
     title: "Washing Machine Repair",
     description: "Find the perfect solution for your needs.",
-    icon: PhoneIcon,
+    links: "/washingmachine-repair",
   },
 ];
  
@@ -67,16 +71,18 @@ function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const renderItems = navListMenuItems.map(
-    ({ icon, title, description }, key) => (
+    ({ links, title, description }, key) => (
       <a key={key}>
-        <MenuItem className="flex items-center  rounded-lg hover:bg-black/10 pt-2 md:hover:text-black hover:text-white" >
+        <MenuItem className="flex items-center rounded-lg hover:bg-black/10 pt-2 md:hover:text-black hover:text-white"  >
           <div >
             <Typography
               variant="h6"
               color="blue-gray"
-              className="flex items-center text-sm font-semibold"
+              className="flex items-center text-sm font-semibold pl-3 m-1"
             >
+              <Link to={links}>
               {title}
+              </Link>
             </Typography>
           </div>
         </MenuItem>
@@ -96,7 +102,7 @@ function NavListMenu() {
         <MenuHandler>
           <Typography as="div" variant="small" className="font-medium">
             <ListItem
-              className="flex items-center gap-2 py-2 pr-4 font-medium text-white-900 text-base hover:bg-slate-600/30"
+              className="flex items-center gap-2 py-2 px-4 font-medium text-white-900 text-base hover:bg-slate-600/30"
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
@@ -116,14 +122,14 @@ function NavListMenu() {
             </ListItem>
           </Typography>
         </MenuHandler>
-        <MenuList className="hidden w-full md:w-64 rounded-xl lg:block hover:bg-black/40">
+        <MenuList className="hidden w-full md:w-64 rounded-xl lg:block ">
           <ul className="grid grid-cols-1 gap-y-2 outline-none outline-0 ">
-            {renderItems}
+            { renderItems}
           </ul>
         </MenuList>
       </Menu>
       <div className="block lg:hidden">
-        <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
+        <Collapse open={isMobileMenuOpen}>{isMobileMenuOpen && renderItems}</Collapse>
       </div>
     </React.Fragment>
   );
@@ -139,7 +145,7 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center  gap-2 py-2 pr-4 hover:bg-slate-600/30 hover:text-white text-base"><Link to="/">Home</Link></ListItem>
+        <ListItem className="flex items-center  gap-2 py-2 px-4 hover:bg-slate-600/30 hover:text-white text-base"><Link to="/">Home</Link></ListItem>
       </Typography>
       <NavListMenu />
       <Typography
@@ -149,7 +155,7 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center  gap-2 py-2 pr-4 hover:bg-slate-600/30 hover:text-white text-base">
+        <ListItem className="flex items-center  gap-2 py-2 px-4 hover:bg-slate-600/30 hover:text-white text-base">
           Contact Us
         </ListItem>
       </Typography>
@@ -160,7 +166,7 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center  gap-2 py-2 pr-4 hover:bg-slate-600/30 hover:text-white text-base">
+        <ListItem className="flex items-center  gap-2 py-2 px-4 hover:bg-slate-600/30 hover:text-white text-base">
           <Link to="/about">About Us</Link>
         </ListItem>
       </Typography>
@@ -171,15 +177,38 @@ function NavList() {
 export function NavBar({hover, className}) {
   const [openNav, setOpenNav] = React.useState(false);
  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await axios.post(`http://localhost:5001/logout`);
+      localStorage.removeItem('token'); 
+      setIsLoggedIn(false);
+      alert("Logged out successfully");
+      navigate('/');
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
   React.useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false),
     );
   }, []);
+
  
   return <div>
-    <Navbar className={`${className} ${hover ? 'z-[9999]' : 'z-0 hidden'} top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
+
+    <Navbar className={`${className}  'z-[9999] z-[999] md:hidden' top-0 px-4 py-2 bg-[#00B09A] rounded-none`}>
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
@@ -187,26 +216,43 @@ export function NavBar({hover, className}) {
           variant="h6"
           className="mr-4 cursor-pointer py-1.5 lg:ml-2 text-xl hover:text-white"
         >
+       <div className="flex flex-row items-center p-0 m-0">
+       <img src={logo} alt="logo" className="max-w-[12%] pr-2" />
           {/* SharpCareer Solutions */}
           <Link to="/">SharpCareer Solutions</Link>
+       </div>
         </Typography>
         <div className="hidden lg:block">
           <NavList />
         </div>
+        {/* <div className="ml-6"> */}
+        {/* </div> */}
         <div className="hidden gap-2 lg:flex">
-          <Link to="/auth">
-            <Button variant="text" color="blue-gray" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
-              Log In
-            </Button>
-          </Link>
-          {/* <Loginbtn/> */}
-          <Link to="/auth">
-            <Button variant="gradient" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
-              
-                Sign Up
-            </Button>
-          </Link>
+       <div>
+       <DarkModeToggler/>
+       </div>
+       {!isLoggedIn ? (
+    <>
+      <Link to="/auth">
+        <Button variant="text" color="blue-gray" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
+          Log In
+        </Button>
+      </Link>
+      <Link to="/auth">
+        <Button variant="gradient" className="bg-slate-600/20 hover:bg-slate-600/30 hover:text-white text-sm font-semibold px-7">
+          Sign Up
+        </Button>
+      </Link>
+    </>
+  ) : (
+    <Button onClick={handleLogout} className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray">
+      Log Out
+    </Button>
+  )}
         </div>
+        <div className="lg:hidden absolute top-[8px] right-[49px]">
+       <DarkModeToggler/>
+       </div>
         <IconButton
 
           variant="text"
@@ -222,27 +268,33 @@ export function NavBar({hover, className}) {
         </IconButton>
       </div>
       <Collapse open={openNav}>
-        <div className="hover:none">
-        <NavList />
-        <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden ">
+        <div className="hover:none lg:hidden">
+       {openNav && <NavList />}
+       {openNav && <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden ">
           
-          <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray" fullWidth>
-            <Link to="/auth" className="hover:text-white">
-              Log In
-            </Link>
-            {/* log  in */}
-          </Button>
-
-          <Button  className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50"  fullWidth>
-            <Link to="/auth" className="hover:text-white">
-              Sign Up
-            </Link>
-          </Button>
-        </div>
-        </div>
+        {!isLoggedIn ? (
+                <>
+                  <Button className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray" fullWidth>
+                    <Link to="/auth" className="hover:text-white">
+                      Log In
+                    </Link>
+                  </Button>
+                  <Button className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50" fullWidth>
+                    <Link to="/auth" className="hover:text-white">
+                      Sign Up
+                    </Link>
+                  </Button>
+                </>
+              ) : (
+                <Button onClick={handleLogout} className="text-base font-medium bg-slate-600/30 hover:bg-slate-600/50 pt-2" color="blue-gray" fullWidth>
+                  Log Out
+                </Button>
+              )}
+        </div>}
+        </div> 
       </Collapse>
     </Navbar>
     {className && <div className="pt-24"></div>}
-
+    {/* </Navbar> */}
     </div>  
 }

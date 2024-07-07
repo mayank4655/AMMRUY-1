@@ -9,6 +9,8 @@ import HeroSection from './HeroSection'
 import { NavBar } from '../reusable components/NavBar'
 import { Footer } from '../reusable components/Footer'
 import ContactUs from './Contact-us'
+import Rating from './Rating'
+import WhyChooseUs from './WhyChooseUs'
 
 function Main() {
   const [hover, sethover] = useState(false);
@@ -28,6 +30,8 @@ function Main() {
       <HeroSection />
       </section>
       <Service />
+      <Rating/>
+      <WhyChooseUs/>
       <Testimonials />
       <section id="contact">
       <Feedback />

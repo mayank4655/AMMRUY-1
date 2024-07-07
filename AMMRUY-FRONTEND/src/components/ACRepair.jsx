@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import acImage from "../assets/Services-img/ac.png"; // Update with AC image path
 import { useDispatch, useSelector } from 'react-redux';
+
+import { showPopup } from '../Redux/slices/popupSlice';
+
 import { NavBar } from '../reusable components/NavBar'; // Ensure NavBar component path is correct
 
 export default function ACRepair() {

@@ -9,6 +9,9 @@
 .btn-txt{
     color: rgba(0, 176, 154, 1);
 }
+.pop{
+    background-color: rgba(0, 0, 0, 0.7);
+}
 .roboto-thin {
     font-family: "Roboto", sans-serif;
     font-weight: 100;
@@ -17,3 +20,31 @@
 .login-bg{
     background: linear-gradient(221.08deg, rgba(2, 148, 148, 0.8) 18.77%, rgba(5, 237, 153, 0.8) 79.98%);
 }
+
+.slick-slide > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 20px;
+
+}
+
+@media screen and (max-width: 912px){
+    .testimonials-img{
+        left: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .testimonials-img{
+        left: 14rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .testimonials-img{
+        left: 5rem;
+    }
+    
+}
+

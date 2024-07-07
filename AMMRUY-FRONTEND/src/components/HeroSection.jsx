@@ -1,6 +1,7 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import CountUp from 'react-countup';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   // Constants for styles and text sequences
@@ -18,9 +19,9 @@ const HeroSection = () => {
 
   return (
     <section className="hero-content flex flex-col md:flex-row items-center justify-center min-h-screen p-4">
-      <div className="hero-content-left h-[400px] w-[350px] md:w-[508px] m-auto">
+      <div className="hero-content-left h-[400px] w-full md:w-[508px] m-auto">
         <img
-          className='w-full h-full object-cover  rounded-xl'
+          className='w-full h-full object-cover rounded-xl'
           src={heroImageSrc}
           alt="Appliance Repair Services"
         />
@@ -38,7 +39,9 @@ const HeroSection = () => {
           />
           </div>
         <div className="mt-1">
+          <Link to='/services'>
           <button className="BTN-color px-8 py-2 text-white font-bold rounded-full hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100">Enquire Now</button>
+          </Link>
         </div>
         <div className="trustedCustomers my-4 font-bold">
           <CountUp start={0} end={160526} />&nbsp;

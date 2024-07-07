@@ -3,17 +3,17 @@ import axios from 'axios';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { XMarkIcon } from '@heroicons/react/24/solid';
-
+import { useSelector } from 'react-redux';
 
 function Authentication() {
 
-  const [login, setLogin] = useState(false);
+  let [login, setLogin] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     confirmPassword: ''
   });
-
+  let [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
   const loginHandler = () => {
     setLogin((prev) => !prev);
@@ -31,23 +31,44 @@ function Authentication() {
     const url = login ? '/login' : '/signup';
 
     try {
-      const response = await axios.post(`http://localhost:5001${url}`, formData);
+      const response = await axios.post(`https://sharp-backend.onrender.com${url}`, formData);
       console.log(response.data);
-       alert(login? "Login Success" : "Signup success");
+  
+      if (login) {
+        localStorage.setItem('token', response.data.token);  
+        localStorage.setItem('email',response.data.email);
 
-      //  if (login) {
-      //   navigat('/');
-      // } else {
-      //   navigate('/login');
-      // }
-
-       window.location.href = '/';
+        setIsLoggedIn(true);
+        alert("Login Success");
+        window.location.href = '/';
+      } else {
+        alert("Signup success");
+        [isLoggedIn, setIsLoggedIn] = useState(true);
+      }
     } catch (error) {
       console.error(error.response.data);
     }
   };
 
+  const logoutHandler = async () => {
+    try {
+      await axios.post(`https://sharp-backend.onrender.com/logout`);
+      localStorage.removeItem('email'); 
+            
+      setIsLoggedIn(false);
+      alert("Logged out successfully");
+       
+      navigate('/');   
+    } catch (error) {
+      console.error('Error logging out:', error);
+       
+    }
+  };
+
+  const {mode} = useSelector((state) => state.darkMode);
+
   return (
+    
     <>
       <main className='md:flex md:justify-between md:items-center md:gap-24 max-h-full'>
         <div className="signup text-center w-[100vw] mx-auto">
@@ -57,12 +78,12 @@ function Authentication() {
             </div>
             <div className="google flex justify-center items-center gap-2 bg-sky-200 rounded-full py-2 my-4">
               <span><FcGoogle /></span>
-              <span>Continue With Google</span>
+              <span className='text-black'>Continue With Google</span>
             </div>
             <div className="or flex justify-center items-center gap-1">
-              <div className='bg-black w-[80%] h-[0.1rem]'></div>
+              <div className='w-[80%] h-[0.1rem]' style={{background: mode? 'white':'black'}}></div>
               <span className='font-bold'>OR</span>
-              <div className='bg-black w-[80%] h-[0.1rem]'></div>
+              <div className='w-[80%] h-[0.1rem]' style={{background: mode? 'white':'black'}}></div>
             </div>
             <form onSubmit={submitHandler}>
               <div className="inputs">
@@ -135,7 +156,12 @@ function Authentication() {
                 className='btn-txt roboto-thin bg-white px-8 py-2 rounded-full'>
                 {!login ? 'Login' : 'Signup'}
               </button>
+
+               
+
+
             </div>
+            
           </div>
         </div>
       </main>
