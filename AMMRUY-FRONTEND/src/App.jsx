@@ -20,7 +20,7 @@ import Microwave from './components/Microwave'
 import { useSelector } from 'react-redux'
 import DarkModeToggler from './reusable components/DarkModeToggler'
 import { colors } from '@mui/material'
-
+import Alert from './components/Alert'
 import Rating from './components/Rating'
 
 function App() {
