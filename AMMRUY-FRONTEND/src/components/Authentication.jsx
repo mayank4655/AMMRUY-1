@@ -31,7 +31,7 @@ function Authentication() {
     const url = login ? '/login' : '/signup';
 
     try {
-      const response = await axios.post(`https://ammruy-1.onrender.com/${url}`, formData);
+      const response = await axios.post(`http://localhost:5001${url}`, formData);
       console.log(response.data);
   
       if (login) {
@@ -52,7 +52,7 @@ function Authentication() {
 
   const logoutHandler = async () => {
     try {
-      await axios.post(`https://ammruy-1.onrender.com/logout`);
+      await axios.post(`http://localhost:5001/logout`);
       localStorage.removeItem('email'); 
             
       setIsLoggedIn(false);
