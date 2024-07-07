@@ -5,8 +5,13 @@ import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
+import dotenv from 'dotenv';
+dotenv.config();
+
+
 const app = express();
 const PORT = process.env.PORT || 5001;
+const mongoURI = process.env.MONGO_URI;
 
 app.use(cors({
   origin: 'http://localhost:5173',  
@@ -15,7 +20,7 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-mongoose.connect('mongodb://localhost:27017/authApp', {
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
