@@ -56,7 +56,7 @@ export function Footer() {
             <div className="text-xl pb-3 font-semibold"><h1>Newsletter</h1></div>
            <div className="flex self-start md:self-center gap-2 flex-col md:flex-row">
            <input type="newsletter" name="newsletter-form" placeholder="Email address" className="rounded-[3px] h-9 md:w-[294px]" />
-           <button className='BTN-color roboto-thin text-white px-8 py-2 rounded-full' onClick={handlesubmit}>Subscribe</button>
+           <button className='BTN-color roboto-thin text-white px-8 py-2 rounded-full'>Subscribe</button>
            </div>
             <div className="flex gap-4 text-blue-gray-900 pt-2">
             <Typography as="a" href="#" className="opacity-80 transition-opacity hover:opacity-100">
