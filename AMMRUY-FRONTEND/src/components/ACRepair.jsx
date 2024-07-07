@@ -139,9 +139,9 @@ export default function ACRepair() {
                   value={selectedACType}
                   onChange={(e) => handleACTypeChange(e.target.value)}
                   className="p-2 rounded-md bg-gradient-to-r from-teal-500 to-lime-400 text-white">
-                  <option value="">Select AC Type</option>
-                  <option value="split">Split AC</option>
-                  <option value="window">Window AC</option>
+                  <option value="" className='text-black'>Select AC Type</option>
+                  <option value="split" className='text-black'>Split AC</option>
+                  <option value="window" className='text-black'>Window AC</option>
                 </select>
               </div>
               {selectedACType && (
