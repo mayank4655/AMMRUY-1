@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5001;
 const mongoURI = process.env.MONGO_URI;
 
 app.use(cors({
-  origin: 'http://localhost:5173',  
+  origin: 'https://sharp-backend.onrender.com',  
   credentials: true
 }));
 app.use(express.json());
